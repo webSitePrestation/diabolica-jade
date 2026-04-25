@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────────────────────────
+   VARIABLES — Dark Luxury
+───────────────────────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #f5f0e8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─────────────────────────────────────────────────────────────────
+   BASE
+───────────────────────────────────────────────────────────────── */
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(
+    --font-inter,
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif
+  );
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   ANIMATIONS GLOBALES
+───────────────────────────────────────────────────────────────── */
+
+/* Pulsation dorée — bouton CTA hero */
+@keyframes luxePulse {
+  0%,
+  100% {
+    border-color: rgba(201, 168, 76, 0.38);
+  }
+  50% {
+    border-color: rgba(201, 168, 76, 0.8);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   UTILITAIRES GLOBAUX
+───────────────────────────────────────────────────────────────── */
+
+/* Scrollbar discrète — cohérente avec le fond noir */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c9a84c;
+}
+
+/* Sélection de texte dorée */
+::selection {
+  background: rgba(201, 168, 76, 0.25);
+  color: #f5f0e8;
 }
