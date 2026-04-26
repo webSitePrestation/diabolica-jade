@@ -8,6 +8,30 @@ import { ARTICLES, type Article } from '../blog-page'
    Ajoute ici le texte de chaque article en correspondance avec son slug.
 ───────────────────────────────────────────────────────────────── */
 const CONTENUS: Record<string, string[]> = {
+  'dresser-une-sissy': [
+    'Une sissy ne se fabrique pas en une nuit. Je commence toujours par casser les illusions : vous ne devenez pas une version fantasmée de vous-même, vous devenez ce que j\'impose. Le dressage commence quand vous arrêtez de négocier avec votre ego.',
+    'La première phase est mentale. J\'installe des règles simples, répétitives, non discutables. Posture, langage, rituels quotidiens, compte-rendu précis. Si vous échouez sur la rigueur, vous échouez sur tout le reste. Je ne construis rien sur l\'instabilité.',
+    'Ensuite, je travaille l\'identité. Je corrige votre manière de parler, de vous présenter, de penser votre propre désir. Une sissy disciplinée ne demande pas la permission d\'exister : elle prouve, par ses actes, qu\'elle mérite d\'être modelée. Chaque détail devient un levier.',
+    'Le corps suit, mais il ne dirige jamais. Tenue, maintien, endurance, tolérance à la frustration : tout est mesuré, progressif, consigné. Je veux une transformation propre, contrôlée, sans théâtre inutile. Le spectaculaire m\'intéresse moins que la précision.',
+    'Je sanctionne les écarts sans émotion. Une punition n\'est pas une colère, c\'est une correction. Quand vous comprenez ça, vous progressez vite. Quand vous le contestez, vous stagnez et vous sortez de mon cadre.',
+    'Le résultat final n\'est pas un costume, c\'est une structure interne. Une sissy réussie sait obéir avant qu\'on insiste, anticipe avant qu\'on ordonne, et reste stable même sous pression. C\'est exactement ce que je cherche : une soumission entraînée, fiable, et utile.',
+  ],
+  'destruction-totale': [
+    'La destruction totale n\'est pas de la violence aveugle. C\'est une méthode. Je retire, couche après couche, ce qui vous sert de masque : l\'orgueil, le contrôle apparent, les récits que vous utilisez pour vous protéger de vous-même.',
+    'Je commence par identifier vos points d\'ancrage : statut, habitudes, certitudes, langage. Ensuite je les attaque dans l\'ordre qui vous déstabilise le plus. Rien de chaotique ici. Je veux une chute propre, progressive, impossible à nier.',
+    'La douleur utile est psychologique avant d\'être physique. Je vous fais voir votre incohérence, je la répète, je vous oblige à la regarder jusqu\'à ce qu\'elle devienne intenable. Quand votre ancien cadre mental se fissure, le travail réel commence.',
+    'Beaucoup réclament l\'intensité, peu supportent la répétition. Pourtant c\'est la répétition qui détruit l\'ego, pas le coup d\'éclat. Les mêmes consignes, les mêmes exigences, la même impossibilité de fuir vos limites. Jour après jour, vous cédez.',
+    'Je ne détruis pas pour le plaisir de ruiner. Je détruis pour reconstruire sous autorité, avec une architecture claire. Sans cette seconde étape, ce n\'est qu\'un effondrement. Moi, je vise la reprogrammation, pas le désordre.',
+    'Si vous entrez dans ce processus, vous perdez vos anciennes défenses. En échange, vous gagnez une place nette : moins de bruit, moins d\'ego, plus d\'obéissance réelle. La destruction totale, c\'est la fin de vos excuses et le début de votre utilité.',
+  ],
+  'humiliation-publique': [
+    'L\'humiliation privée est un exercice préparatoire. L\'humiliation publique, elle, révèle la vérité. Devant les autres, vous ne pouvez plus tricher avec l\'image que vous voulez préserver. C\'est là que je mesure votre niveau réel de soumission.',
+    'En public, chaque réaction compte : votre posture, votre respiration, votre regard, votre capacité à tenir une consigne simple sous pression sociale. Ceux qui se disent soumis mais s\'effondrent au premier témoin n\'étaient que performatifs.',
+    'Je n\'utilise jamais le public au hasard. Je choisis le contexte, l\'intensité et l\'objectif. Une humiliation efficace n\'est pas un scandale : c\'est une mise en situation calibrée qui vous force à obéir sans vous cacher derrière le confort du privé.',
+    'Le point crucial, c\'est la honte. Vous devez apprendre à la traverser au lieu de la fuir. Quand vous cessez de vous débattre contre ce que les autres peuvent penser, vous devenez enfin disponible à mon autorité.',
+    'Ce test distingue les curieux des engagés. Les curieux veulent le frisson puis reculent dès qu\'il y a un enjeu social. Les engagés absorbent l\'impact, restent centrés, exécutent la consigne, et comprennent que l\'exposition est un outil de formation.',
+    'Si vous passez ce cap, votre soumission change de nature. Elle devient plus stable, plus lucide, plus profonde. Vous ne cherchez plus à paraître soumis : vous l\'êtes, même quand le monde regarde.',
+  ],
   'ce-que-j-attends-d-un-soumis': [
     'On me pose souvent la question : « Qu\'est-ce que vous cherchez chez un soumis ? » Comme si la réponse était une liste de cases à cocher. Ce n\'est pas comme ça que ça fonctionne.',
     'La première chose que j\'observe, c\'est le rapport au silence. Un soumis qui écrit dix messages d\'affilée sans réponse n\'a pas compris que l\'attente fait partie du jeu. Pire — il n\'a pas compris que son impatience lui retire le contrôle qu\'il pense encore avoir.',

@@ -18,32 +18,36 @@ interface PratiqueItem {
 
 const OUI: PratiqueItem[] = [
   { label: 'Domination psychologique' },
-  { label: 'Humiliation verbale',       note: 'consentie et cadrée' },
-  { label: 'Teasing & frustration' },
-  { label: 'Contrôle & protocoles' },
-  { label: 'Tâches & missions à distance' },
-  { label: 'Jeux de pouvoir lifestyle' },
-  { label: 'Punitions & récompenses' },
-  { label: 'Conditionnement mental' },
-  { label: 'Fétichisme',                note: 'selon demande' },
-  { label: 'Findom',                    note: 'sur demande' },
-  { label: 'Domination online exclusive' },
+  { label: 'Humiliation verbale et publique' },
+  { label: 'Domination hard — destruction totale' },
+  { label: 'Dressage et éducation sissy' },
+  { label: 'Pegging et anal' },
+  { label: 'Urolagnie (uro)' },
+  { label: 'Ballbusting' },
+  { label: 'Facesitting (habillée — privation de respiration)' },
+  { label: 'Mise en cage' },
+  { label: 'Électrostimulation' },
+  { label: 'Contrôle de sextoys à distance (plugs connectés)' },
+  { label: 'Domination en duo avec une autre Domina' },
+  { label: 'Tâches et protocoles à distance' },
+  { label: 'Findom' },
+  { label: 'Contenu vidéo payant (Vends-ta-culotte)' },
 ]
 
 const NON: PratiqueItem[] = [
-  { label: 'Relations sexuelles' },
-  { label: 'Rencontres physiques' },
-  { label: 'Contenu explicite hardcore' },
-  { label: 'Pratiques non consenties' },
+  { label: 'Relations sexuelles avec pénétration' },
   { label: 'Relations romantiques' },
+  { label: 'Rencontres sans présentation préalable' },
+  { label: 'Soumis non éduqués ou irrespectueux' },
   { label: 'Partage de données personnelles' },
+  { label: 'Contenu gratuit sur demande' },
 ]
 
 const STYLE: string[] = [
-  'Ma domination est avant tout psychologique. Je travaille l\'esprit, pas le corps.',
-  'Je pose un cadre clair dès le départ. Un soumis qui ne respecte pas les règles n\'a pas accès à mon univers.',
-  'Je ne suis pas disponible 24h/24. Ma présence est un privilège, pas un dû.',
-  'Je n\'accepte que des soumis respectueux, patients et conscients de ce qu\'ils cherchent.',
+  'Je suis dans la destruction totale — physique, mentale, ego. Rien n\'est laissé intact.',
+  'J\'ai une affection particulière pour les sissies. Les transformer, les dresser, les posséder.',
+  'En public ou en privé, l\'humiliation reste un outil. Je l\'utilise avec précision.',
+  'Vous pensez avoir des limites ? C\'est moi qui décide où elles se trouvent.',
 ]
 
 /* ─────────────────────────────────────────────────────────────────

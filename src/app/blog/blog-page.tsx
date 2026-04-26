@@ -24,6 +24,30 @@ export interface Article {
 
 export const ARTICLES: Article[] = [
   {
+    slug:     'dresser-une-sissy',
+    titre:    'Dresser une sissy — de zéro à parfaite',
+    extrait:  'La transformation sissy ne s\'improvise pas. C\'est un travail de fond, méthodique, qui touche à l\'identité. Voici comment j\'approche ce dressage particulier.',
+    date:     '2 mai 2025',
+    readTime: 5,
+    tag:      'Sissy',
+  },
+  {
+    slug:     'destruction-totale',
+    titre:    'La destruction totale — ce que ça signifie vraiment',
+    extrait:  'Quand je parle de destruction, certains imaginent de la brutalité gratuite. C\'est autre chose. C\'est une déconstruction chirurgicale de l\'ego, du contrôle, des certitudes.',
+    date:     '25 avril 2025',
+    readTime: 6,
+    tag:      'Domination Hard',
+  },
+  {
+    slug:     'humiliation-publique',
+    titre:    'Humiliation publique — pourquoi c\'est le test ultime',
+    extrait:  'Être humilié en privé, c\'est facile. Face à d\'autres, c\'est là que la vraie soumission se révèle. Ce que j\'observe chez ceux qui passent ce cap.',
+    date:     '14 avril 2025',
+    readTime: 4,
+    tag:      'Humiliation',
+  },
+  {
     slug:     'ce-que-j-attends-d-un-soumis',
     titre:    'Ce que j\'attends d\'un soumis',
     extrait:  'La soumission n\'est pas de la faiblesse. C\'est un choix conscient, exigeant, qui demande autant de caractère que de dominer. Voici ce que j\'observe chez ceux qui méritent mon attention.',
