@@ -172,36 +172,42 @@ export default function HomePage() {
 
           <div
             className="
-              absolute left-1/2 top-[calc(100%+10px)] -translate-x-1/2
-              min-w-[170px] border border-[#c9a84c]/20 bg-[#0a0a0a]/95 backdrop-blur-md
-              px-4 py-3 flex flex-col gap-2 shadow-[0_14px_38px_rgba(0,0,0,0.38)]
+              absolute left-1/2 top-full -translate-x-1/2
+              pt-2 min-w-[170px]
               opacity-0 pointer-events-none translate-y-1
               transition-all duration-200
               group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0
               group-focus-within:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0
             "
           >
-            <Link
-              href="/pratiques"
-              className="text-[9px] uppercase tracking-[0.24em] text-[#f5f0e8]/65 hover:text-[#c9a84c] transition-colors duration-300"
-              style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
+            <div
+              className="
+                border border-[#c9a84c]/20 bg-[#0a0a0a]/95 backdrop-blur-md
+                px-4 py-3 flex flex-col gap-2 shadow-[0_14px_38px_rgba(0,0,0,0.38)]
+              "
             >
-              Pratiques
-            </Link>
-            <Link
-              href="/protocole"
-              className="text-[9px] uppercase tracking-[0.24em] text-[#f5f0e8]/65 hover:text-[#c9a84c] transition-colors duration-300"
-              style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
-            >
-              Protocole
-            </Link>
-            <Link
-              href="/blog"
-              className="text-[9px] uppercase tracking-[0.24em] text-[#f5f0e8]/65 hover:text-[#c9a84c] transition-colors duration-300"
-              style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
-            >
-              Journal
-            </Link>
+              <Link
+                href="/pratiques"
+                className="text-[9px] uppercase tracking-[0.24em] text-[#f5f0e8]/65 hover:text-[#c9a84c] transition-colors duration-300"
+                style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
+              >
+                Pratiques
+              </Link>
+              <Link
+                href="/protocole"
+                className="text-[9px] uppercase tracking-[0.24em] text-[#f5f0e8]/65 hover:text-[#c9a84c] transition-colors duration-300"
+                style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
+              >
+                Protocole
+              </Link>
+              <Link
+                href="/blog"
+                className="text-[9px] uppercase tracking-[0.24em] text-[#f5f0e8]/65 hover:text-[#c9a84c] transition-colors duration-300"
+                style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
+              >
+                Journal
+              </Link>
+            </div>
           </div>
         </div>
 
