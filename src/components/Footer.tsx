@@ -99,7 +99,7 @@ export default function Footer() {
             className="text-[clamp(1.4rem,5vw,2rem)] italic font-normal text-[#f5f0e8]"
             style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
           >
-            Prêt à entrer dans mon monde ?
+            Vous n&apos;avez qu&apos;une seule chance. Ne la gâchez pas.
           </h2>
           <p
             className="text-[11px] tracking-[0.3em] uppercase text-[#f5f0e8]/40 font-light"

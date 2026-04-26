@@ -464,7 +464,7 @@ export default function HomePage() {
               className="text-[9px] md:text-[10px] tracking-[0.45em] uppercase font-light text-[#f5f0e8]/45 mb-10"
               style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
             >
-              Domina Lifestyle &amp; Teasing
+              Ego Slayer · Lifestyle Domina · Born to be spoiled
             </motion.p>
           </motion.div>
         )}
@@ -492,7 +492,7 @@ export default function HomePage() {
                   className="relative z-10 text-[9px] tracking-[0.35em] uppercase font-light text-[#f5f0e8]"
                   style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
                 >
-                  Entrer dans l&apos;intimité
+                  Supplié pour une réponse
                 </span>
               </motion.a>
 

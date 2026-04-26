@@ -37,7 +37,7 @@ const SERVICES: Service[] = [
     label:     'Univers Domina',
     title:     'Domination & Pouvoir',
     description:
-      'Mon univers Domina : jeux de pouvoir, présence assumée, intensité maîtrisée. Un contenu fort, construit autour du contrôle et de la tension.',
+      'Une seule chance. Ne la gâchez pas. Je ne donne pas de secondes opportunités à ceux qui n\'ont pas su saisir la première.',
     details: [
       'Dominance affirmée',
       'Énergie intense et codifiée',
@@ -239,11 +239,9 @@ export default function ServicesSection() {
             className="text-[clamp(2rem,5vw,3.5rem)] leading-[1.06] tracking-tight text-[#f5f0e8] italic font-normal"
             style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
           >
-            Entrez dans
+            Vous n&apos;accédez pas à mon monde.
             <br />
-            <span className="not-italic font-bold text-[#c9a84c]">
-              l&apos;expérience Diabolica.
-            </span>
+            <span className="not-italic font-bold text-[#c9a84c]">Vous y êtes admis.</span>
           </motion.h2>
 
           <motion.p

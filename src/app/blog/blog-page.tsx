@@ -101,8 +101,7 @@ export default function BlogPage() {
             className="text-[13px] leading-[1.9] text-[#f5f0e8]/45 font-light max-w-md"
             style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
           >
-            Domination, lifestyle, soumission. Ce que je pense,
-            ce que j&apos;observe, ce que j&apos;enseigne.
+            Ce que j&apos;observe. Ce que j&apos;exige. Ce que peu comprennent.
           </p>
         </div>
 

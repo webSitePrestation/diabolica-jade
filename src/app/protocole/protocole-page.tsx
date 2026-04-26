@@ -32,7 +32,7 @@ const ETAPES: Etape[] = [
     numero: '03',
     titre:  'Le premier message',
     texte:  'Présentez-vous brièvement : qui vous êtes, votre expérience en soumission, ce que vous cherchez. Soyez honnête et direct. Pas de familiarité excessive, pas de "bonjour Maîtresse" sans y être invité.',
-    note:   'Un message respectueux et bien construit a infiniment plus de chances d\'obtenir une réponse.',
+    note:   'Les vrais savent déjà comment s\'adresser à moi. Les autres apprennent à leurs dépens.',
   },
   {
     numero: '04',
@@ -101,8 +101,9 @@ export default function ProtocolePage() {
             className="text-[13px] leading-[1.9] text-[#f5f0e8]/50 font-light max-w-lg mt-2"
             style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
           >
-            Mon temps est précieux. Si vous souhaitez entrer dans mon univers,
-            voici les règles à respecter. Elles ne sont pas optionnelles.
+            Je ne démarche pas. Je ne relance pas. Je ne justifie pas mes silences.
+            Si vous lisez ceci, c&apos;est vous qui avez fait le premier pas —
+            continuez dans cet état d&apos;esprit.
           </p>
         </div>
 

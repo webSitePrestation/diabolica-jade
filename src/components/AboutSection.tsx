@@ -93,11 +93,7 @@ export default function AboutSection() {
                 className="text-[2.6rem] xl:text-[3.2rem] leading-[1.08] tracking-tight text-[#f5f0e8] italic font-normal"
                 style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
               >
-                Un univers à part.
-                <br />
-                <span className="not-italic font-bold text-[#c9a84c]">
-                  Hors du commun.
-                </span>
+                Je suis <span className="not-italic font-bold text-[#c9a84c]">LA tentation.</span>
               </motion.h2>
 
               {/* Corps */}
@@ -106,19 +102,18 @@ export default function AboutSection() {
                   className="text-[14px] leading-[1.95] text-[#f5f0e8]/55 font-light"
                   style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
                 >
-                  Je suis{' '}
-                  <strong className="text-[#f5f0e8]/85 font-normal">Diabolica Jade</strong>
-                  {' '}— Domina, créatrice de contenu et architecte de fantasmes.
-                  Mon univers est celui du pouvoir, de la séduction maîtrisée,
-                  et du teasing qui laisse sans voix.
+                  Belle comme une rose, douloureuse comme ses épines.
+                  Je ne cours pas après vous — vous suppliez pour retenir
+                  mon attention. Ce n&apos;est pas de l&apos;arrogance.
+                  C&apos;est l&apos;ordre naturel des choses.
                 </p>
                 <p
                   className="text-[14px] leading-[1.95] text-[#f5f0e8]/55 font-light"
                   style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
                 >
-                  Ici, rien n&apos;est laissé au hasard. Chaque détail est pensé
-                  pour vous emmener dans un espace d&apos;intensité rare —
-                  où l&apos;interdit côtoie l&apos;élégance.
+                  Rentrer dans mon univers est difficile.
+                  <br />
+                  En ressortir l&apos;est encore plus.
                 </p>
               </motion.div>
 
@@ -131,8 +126,7 @@ export default function AboutSection() {
                   className="text-[14px] italic leading-relaxed text-[#f5f0e8]/38"
                   style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
                 >
-                  &ldquo; Le vrai luxe, c&apos;est ce qu&apos;on ne montre pas
-                  à tout le monde. &rdquo;
+                  &ldquo; C&apos;est moi qui décide de tes limites. &rdquo;
                 </p>
               </motion.blockquote>
 
@@ -236,9 +230,7 @@ export default function AboutSection() {
             className="text-[clamp(1.9rem,8vw,2.4rem)] leading-[1.1] tracking-tight text-[#f5f0e8] italic font-normal"
             style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
           >
-            Un univers à part.
-            <br />
-            <span className="not-italic font-bold text-[#c9a84c]">Hors du commun.</span>
+            Je suis <span className="not-italic font-bold text-[#c9a84c]">LA tentation.</span>
           </motion.h2>
 
           <motion.div {...fadeUp(0.16)} className="flex flex-col gap-4">
@@ -246,19 +238,18 @@ export default function AboutSection() {
               className="text-[13px] leading-[1.9] text-[#f5f0e8]/55 font-light"
               style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
             >
-              Je suis{' '}
-              <strong className="text-[#f5f0e8]/85 font-normal">Diabolica Jade</strong>
-              {' '}— Domina, créatrice de contenu et architecte de fantasmes.
-              Mon univers est celui du pouvoir, de la séduction maîtrisée,
-              et du teasing qui laisse sans voix.
+              Belle comme une rose, douloureuse comme ses épines.
+              Je ne cours pas après vous — vous suppliez pour retenir
+              mon attention. Ce n&apos;est pas de l&apos;arrogance.
+              C&apos;est l&apos;ordre naturel des choses.
             </p>
             <p
               className="text-[13px] leading-[1.9] text-[#f5f0e8]/55 font-light"
               style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
             >
-              Ici, rien n&apos;est laissé au hasard. Chaque détail est pensé
-              pour vous emmener dans un espace d&apos;intensité rare —
-              où l&apos;interdit côtoie l&apos;élégance.
+              Rentrer dans mon univers est difficile.
+              <br />
+              En ressortir l&apos;est encore plus.
             </p>
           </motion.div>
 
@@ -267,8 +258,7 @@ export default function AboutSection() {
               className="text-[13px] italic leading-relaxed text-[#f5f0e8]/40"
               style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
             >
-              &ldquo; Le vrai luxe, c&apos;est ce qu&apos;on ne montre pas
-              à tout le monde. &rdquo;
+              &ldquo; C&apos;est moi qui décide de tes limites. &rdquo;
             </p>
           </motion.blockquote>
 
