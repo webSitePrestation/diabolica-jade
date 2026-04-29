@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 import { Send } from 'lucide-react'
+import { SectionDivider } from '@/components/SectionDivider'
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
 const TELEGRAM_URL = 'https://t.me/DiabolicaJade'
@@ -72,6 +73,8 @@ export default function TeasingSection() {
               Aperçu
             </span>
           </motion.div>
+
+          <SectionDivider />
 
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-16 lg:mb-20">
             <motion.h2

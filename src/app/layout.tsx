@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Inter, Geist_Mono } from 'next/font/google'
+import { Cormorant_Garamond, Cinzel, Jost, Geist_Mono } from 'next/font/google'
 import './globals.css'
 
 /* ─────────────────────────────────────────────────────────────────
@@ -7,19 +7,27 @@ import './globals.css'
 ───────────────────────────────────────────────────────────────── */
 
 /** Serif élégante — titres & display */
-const playfair = Playfair_Display({
+const cormorantGaramond = Cormorant_Garamond({
   subsets: ['latin'],
-  variable: '--font-playfair',
-  weight: ['400', '700'],
+  variable: '--font-cormorant-garamond',
+  weight: ['300', '400', '600'],
   style: ['normal', 'italic'],
   display: 'swap',
 })
 
 /** Sans-Serif fine — corps, sous-titres, labels */
-const inter = Inter({
+const jost = Jost({
   subsets: ['latin'],
-  variable: '--font-inter',
-  weight: ['300', '400'],
+  variable: '--font-jost',
+  weight: ['300', '400', '500'],
+  display: 'swap',
+})
+
+/** Serif display complémentaire */
+const cinzel = Cinzel({
+  subsets: ['latin'],
+  variable: '--font-cinzel',
+  weight: ['400', '600', '700'],
   display: 'swap',
 })
 
@@ -34,8 +42,24 @@ const geistMono = Geist_Mono({
    METADATA
 ───────────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-  title: 'Diabolica Jade',
-  description: 'Domina Lifestyle & Teasing — Univers exclusif.',
+  title: 'Rbatia — Domina · Reine de lignée',
+  description: "Rbatia. Née à Rabat, règne sur tout. Domina de lignée royale. L'audience s'obtient, elle ne se demande pas.",
+  openGraph: {
+    title: 'Rbatia — Reine Domina',
+    description: 'Née de lignée royale. Domina inaccessible. Audience sur convocation.',
+    url: '[URL_FINALE_RBATIA]',
+    type: 'website',
+    locale: 'fr_FR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@DomRabatia',
+  },
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
   robots: { index: false, follow: false }, // ← passe à true quand tu veux indexer
 }
 
@@ -49,13 +73,14 @@ export default function RootLayout({
     <html
       lang="fr"
       className={`
-        ${playfair.variable}
-        ${inter.variable}
+        ${cormorantGaramond.variable}
+        ${jost.variable}
+        ${cinzel.variable}
         ${geistMono.variable}
         h-full antialiased
       `}
     >
-      <body className="min-h-full flex flex-col bg-[#0a0a0a] text-[#f5f0e8]">
+      <body className="min-h-full flex flex-col">
         {children}
       </body>
     </html>

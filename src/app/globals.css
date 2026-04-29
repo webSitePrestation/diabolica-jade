@@ -1,18 +1,53 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;600;700&family=Jost:wght@200;300;400;500&display=swap');
 
-/* ─────────────────────────────────────────────────────────────────
-   VARIABLES — Dark Luxury
-───────────────────────────────────────────────────────────────── */
 :root {
-  --background: #0a0a0a;
-  --foreground: #f5f0e8;
+  --bg-primary:     #06040C;
+  --bg-secondary:   #0D0A15;
+  --bg-card:        #100E1A;
+  --bg-elevated:    #181428;
+
+  --gold-primary:   #C9A84C;
+  --gold-bright:    #E8C96A;
+  --gold-dark:      #8B6914;
+  --gold-muted:     #6B5530;
+  --gold-glow:      rgba(201,168,76,0.12);
+  --gold-border:    rgba(201,168,76,0.20);
+
+  --ivory:          #F0E6CC;
+  --text-primary:   #E5D8B8;
+  --text-secondary: #B09A72;
+  --text-muted:     #7A6A50;
+
+  --rouge:          #3D0A14;
 }
 
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cpath d='M40 5 L75 40 L40 75 L5 40Z' stroke='%23C9A84C' stroke-width='0.4' stroke-opacity='0.06' fill='none'/%3E%3Cpath d='M40 18 L62 40 L40 62 L18 40Z' stroke='%23C9A84C' stroke-width='0.3' stroke-opacity='0.04' fill='none'/%3E%3Ccircle cx='40' cy='40' r='3' fill='%23C9A84C' fill-opacity='0.03'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 300; color: var(--ivory); }
+
+@import "tailwindcss";
+
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-playfair);
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-jost);
+  --font-serif: var(--font-cormorant-garamond);
+  --font-display: var(--font-cinzel);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -26,18 +61,38 @@ html {
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(
-    --font-inter,
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    sans-serif
-  );
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: "Jost", sans-serif;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cpath d='M40 5 L75 40 L40 75 L5 40Z' stroke='%23C9A84C' stroke-width='0.4' stroke-opacity='0.06' fill='none'/%3E%3Cpath d='M40 18 L62 40 L40 62 L18 40Z' stroke='%23C9A84C' stroke-width='0.3' stroke-opacity='0.04' fill='none'/%3E%3Ccircle cx='40' cy='40' r='3' fill='%23C9A84C' fill-opacity='0.03'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+main,
+header,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  color: var(--ivory);
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -64,18 +119,18 @@ body {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
+  background: var(--bg-elevated);
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c9a84c;
+  background: var(--gold-primary);
 }
 
 /* Sélection de texte dorée */
 ::selection {
-  background: rgba(201, 168, 76, 0.25);
-  color: #f5f0e8;
+  background: var(--gold-glow);
+  color: var(--text-primary);
 }

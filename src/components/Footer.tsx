@@ -3,14 +3,13 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Send, X } from 'lucide-react'
+import { SectionDivider } from '@/components/SectionDivider'
 
 /* ─────────────────────────────────────────────────────────────────
    CONFIG
 ───────────────────────────────────────────────────────────────── */
-const TELEGRAM_URL  = 'https://t.me/DiabolicaJade'
-const X_URL         = 'https://x.com/diabolicaisback?s=21'
-const VTC_URL       = 'https://www.vends-ta-culotte.com/user/117113/Diabolica+Jade'
-const CURRENT_YEAR  = new Date().getFullYear()
+const TELEGRAM_URL  = 'https://t.me/domrabatia'
+const X_URL         = 'https://x.com/domrabatia'
 
 interface FooterLink {
   label: string
@@ -40,11 +39,6 @@ const SOCIAL_LINKS = [
     href: X_URL,
     icon: <X size={12} strokeWidth={1} aria-hidden="true" />,
   },
-  {
-    label: 'V·T·C',
-    href: VTC_URL,
-    icon: null,
-  },
 ] as const
 
 /* ─────────────────────────────────────────────────────────────────
@@ -59,12 +53,10 @@ export default function Footer() {
       ref={ref}
       id="contact"
       role="contentinfo"
-      aria-label="Pied de page — Diabolica Jade"
-      className="relative w-full bg-[#0a0a0a] overflow-hidden"
+      aria-label="Pied de page — Rbatia"
+      className="relative w-full bg-[#0a0a0a] overflow-hidden border-t"
+      style={{ borderTop: '1px solid var(--gold-border)' }}
     >
-
-      {/* Séparateur haut — ligne fine dorée */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#c9a84c]/30 to-transparent" />
 
       {/* ── Bloc CTA central ──────────────────────────────────── */}
       <div className="px-6 pt-20 pb-14 md:px-12 flex flex-col items-center gap-8 text-center">
@@ -79,12 +71,12 @@ export default function Footer() {
           <span
             className="
               text-[clamp(2.8rem,10vw,5rem)]
-              font-bold italic text-[#c9a84c]/15
+              font-bold text-[#c9a84c]/15
               leading-none select-none
             "
-            style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
+            style={{ fontFamily: 'var(--font-cinzel, Georgia, serif)' }}
           >
-            D · J
+            R <span style={{ color: 'var(--gold-primary)' }}>◆</span> B
           </span>
         </motion.div>
 
@@ -95,19 +87,33 @@ export default function Footer() {
           transition={{ delay: 0.2, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col gap-3"
         >
-          <h2
-            className="text-[clamp(1.4rem,5vw,2rem)] italic font-normal text-[#f5f0e8]"
-            style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
-          >
-            Vous n&apos;avez qu&apos;une seule chance. Ne la gâchez pas.
-          </h2>
           <p
             className="text-[11px] tracking-[0.3em] uppercase text-[#f5f0e8]/40 font-light"
             style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
           >
-            Contenu exclusif · Telegram
+            Audience Royale
+          </p>
+          <h2
+            className="text-[clamp(1.4rem,5vw,2rem)] italic font-normal text-[#f5f0e8]"
+            style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
+          >
+            Un regard de Reine peut tout <em style={{ color: 'var(--gold-primary)' }}>changer</em>.
+          </h2>
+          <p
+            className="text-[1rem] italic text-[#f5f0e8]/75"
+            style={{ fontFamily: 'Cormorant Garamond, serif' }}
+          >
+            Encore faut-il mériter d&apos;être regardée.
+          </p>
+          <p
+            className="text-[11px] tracking-[0.3em] uppercase text-[#f5f0e8]/40 font-light"
+            style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
+          >
+            Audience privée · Sur convocation
           </p>
         </motion.div>
+
+        <SectionDivider />
 
         {/* Bouton Telegram */}
         <motion.a
@@ -119,7 +125,7 @@ export default function Footer() {
           transition={{ delay: 0.38, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           whileHover={{ scale: 1.015 }}
           whileTap={{ scale: 0.97 }}
-          aria-label="Rejoindre sur Telegram"
+          aria-label="Solliciter une audience sur Telegram"
           className="
             group relative
             flex items-center gap-3
@@ -153,7 +159,7 @@ export default function Footer() {
             className="relative z-10 text-[9px] tracking-[0.35em] uppercase font-light text-[#f5f0e8]"
             style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
           >
-            Rejoindre mon Telegram
+            Solliciter une audience
           </span>
         </motion.a>
 
@@ -170,7 +176,7 @@ export default function Footer() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[9px] tracking-[0.3em] uppercase font-light text-[#f5f0e8]/30 hover:text-[#c9a84c]/70 transition-colors duration-300"
+                className="inline-flex items-center gap-2 text-[9px] tracking-[0.3em] uppercase font-light text-[#f5f0e8]/30 hover:text-[var(--gold-primary)] transition-colors duration-300"
                 style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
               >
                 {icon}
@@ -205,7 +211,7 @@ export default function Footer() {
           className="text-[9px] tracking-[0.25em] uppercase text-[#f5f0e8]/22 font-light order-2 md:order-1"
           style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
         >
-          &copy; {CURRENT_YEAR} Diabolica Jade — Tous droits réservés
+          &copy; 2026 Rbatia — Tous droits réservés
         </p>
 
         {/* Liens légaux */}
@@ -219,7 +225,7 @@ export default function Footer() {
                 href={href}
                 className="
                   text-[9px] tracking-[0.2em] uppercase font-light
-                  text-[#f5f0e8]/25 hover:text-[#c9a84c]/70
+                  text-[#f5f0e8]/25 hover:text-[var(--gold-primary)]
                   transition-colors duration-300
                 "
                 style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
@@ -243,7 +249,7 @@ export default function Footer() {
             <span key={label} className="flex items-center gap-4">
               <a
                 href={href}
-                className="text-[9px] tracking-[0.22em] uppercase font-light text-[#f5f0e8]/22 hover:text-[#c9a84c]/70 transition-colors duration-300"
+                className="text-[9px] tracking-[0.22em] uppercase font-light text-[#f5f0e8]/22 hover:text-[var(--gold-primary)] transition-colors duration-300"
                 style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
               >
                 {label}

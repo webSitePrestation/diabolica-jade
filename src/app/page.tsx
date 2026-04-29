@@ -9,22 +9,23 @@ import AboutSection    from '@/components/AboutSection'
 import ServicesSection from '@/components/ServicesSection'
 import TeasingSection  from '@/components/TeasingSection'
 import Footer          from '@/components/Footer'
+import { SectionDivider } from '@/components/SectionDivider'
 
 /* ─────────────────────────────────────────────────────────────────
    CONFIG
 ───────────────────────────────────────────────────────────────── */
 const TELEGRAM_URL = 'https://t.me/DiabolicaJade'
+const RBATIA_TELEGRAM_URL = 'https://t.me/rbatia'
 const X_URL = 'https://x.com/diabolicaisback?s=21'
-const VTC_URL = 'https://www.vends-ta-culotte.com/user/117113/Diabolica+Jade'
 
 interface NavLink { label: string; href: string }
 
 const NAV_LINKS: NavLink[] = [
-  { label: 'Accueil',  href: '#top'      },
-  { label: 'À propos', href: '#about'    },
-  { label: 'Services', href: '#services' },
-  { label: 'Galerie',  href: '#gallery'  },
-  { label: 'Contact',  href: '#contact'  },
+  { label: 'Sanctuaire', href: '#top'      },
+  { label: 'La Reine',   href: '#about'    },
+  { label: 'La Cour',    href: '#services' },
+  { label: 'Portraits',  href: '#gallery'  },
+  { label: 'Audience',   href: '#contact'  },
 ]
 
 /* ─────────────────────────────────────────────────────────────────
@@ -68,6 +69,7 @@ export default function HomePage() {
   const mounted = true
   const [showStickyNav, setShowStickyNav] = useState<boolean>(false)
   const [introVisible, setIntroVisible] = useState<boolean>(true)
+  const [isNavScrolled, setIsNavScrolled] = useState<boolean>(false)
 
   useEffect(() => {
     const introTimer = window.setTimeout(() => {
@@ -98,6 +100,16 @@ export default function HomePage() {
     }
   }, [])
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsNavScrolled(window.scrollY > 10)
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <>
       <AnimatePresence>
@@ -119,10 +131,10 @@ export default function HomePage() {
                 initial={{ letterSpacing: '0.32em', opacity: 0 }}
                 animate={{ letterSpacing: '0.2em', opacity: 1 }}
                 transition={{ delay: 0.15, duration: 1.05, ease: [0.22, 1, 0.36, 1] }}
-                className="text-[clamp(2.6rem,11vw,5.6rem)] italic leading-none text-[#f5f0e8]"
-                style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
+                className="text-[clamp(2.6rem,11vw,5.6rem)] leading-none text-[#f5f0e8]"
+                style={{ fontFamily: 'var(--font-cinzel, Georgia, serif)' }}
               >
-                D·J
+                R <span className="text-[var(--color-gold-primary)]">◆</span> B
               </motion.span>
 
               <motion.div
@@ -144,8 +156,8 @@ export default function HomePage() {
         className={`
           fixed top-3 left-1/2 -translate-x-1/2 z-50
           hidden md:flex items-center gap-7
-          px-7 py-3 border border-[#c9a84c]/20
-          bg-[#0a0a0a]/82 backdrop-blur-md
+          px-7 py-3 border-b border-[var(--color-border-gold)]
+          bg-[rgba(7,5,10,0.95)] backdrop-blur-md
           shadow-[0_10px_40px_rgba(0,0,0,0.38)]
           ${showStickyNav ? 'pointer-events-auto' : 'pointer-events-none'}
         `}
@@ -154,7 +166,7 @@ export default function HomePage() {
           <a
             key={`sticky-${label}`}
             href={href}
-            className="text-[9px] uppercase tracking-[0.34em] text-[#f5f0e8]/58 hover:text-[#c9a84c] transition-colors duration-300"
+            className="text-[9px] uppercase tracking-[0.34em] text-[var(--ivory)]/58 hover:text-[var(--gold-bright)] transition-colors duration-300 border-b border-transparent hover:border-[var(--gold-primary)]"
             style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
           >
             {label}
@@ -231,14 +243,32 @@ export default function HomePage() {
             <X size={14} strokeWidth={1} aria-hidden="true" />
           </a>
           <a
-            href={VTC_URL}
+            href={RBATIA_TELEGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="VTC"
-            className="text-[9px] tracking-[0.3em] uppercase font-light text-[#f5f0e8]/40 hover:text-[#c9a84c]/70 transition-colors duration-300"
-            style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
+            aria-label="Solliciter sur Telegram"
+            className="uppercase"
+            style={{
+              fontFamily: 'Jost',
+              fontSize: '0.65rem',
+              letterSpacing: '0.25em',
+              textTransform: 'uppercase',
+              color: 'var(--gold-primary)',
+              border: '1px solid var(--gold-border)',
+              padding: '0.55rem 1.4rem',
+              background: 'transparent',
+              transition: 'all 0.3s',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'var(--gold-primary)'
+              e.currentTarget.style.color = 'var(--bg-primary)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'transparent'
+              e.currentTarget.style.color = 'var(--gold-primary)'
+            }}
           >
-            V·T·C
+            Solliciter
           </a>
         </div>
       </motion.nav>
@@ -254,7 +284,7 @@ export default function HomePage() {
         {/* Fond image */}
         <div className="absolute inset-0 z-0" aria-hidden="true">
           <Image
-            src="/image00002.jpeg"
+            src="/[IMAGE_RBATIA].jpeg"
             alt=""
             fill
             priority
@@ -265,14 +295,7 @@ export default function HomePage() {
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(10,10,10,0) 30%, rgba(10,10,10,0.65) 65%, #0a0a0a 100%)',
-            }}
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                'radial-gradient(ellipse 90% 100% at 50% 50%, transparent 35%, rgba(0,0,0,0.5) 100%)',
+                'radial-gradient(ellipse 70% 80% at 50% 40%, rgba(6,4,12,0.35) 0%, rgba(6,4,12,0.95) 100%)',
             }}
           />
         </div>
@@ -281,6 +304,11 @@ export default function HomePage() {
         <nav
           className="relative z-30 flex items-center justify-between px-6 pt-10 md:px-12"
           aria-label="Navigation principale"
+          style={
+            isNavScrolled
+              ? { background: 'rgba(6,4,12,0.97)', borderBottom: '1px solid var(--gold-border)' }
+              : { background: 'transparent', borderBottom: '1px solid transparent' }
+          }
         >
           {mounted && (
             <motion.span
@@ -288,9 +316,11 @@ export default function HomePage() {
               animate={{ opacity: 1 }}
               transition={{ delay: 1.3, duration: 0.8 }}
               className="text-[10px] tracking-[0.5em] font-light text-[#c9a84c] select-none"
-              style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
+              style={{ fontFamily: 'var(--font-cinzel, Georgia, serif)' }}
             >
-              D · J
+              <span style={{fontFamily:'Cinzel,serif', letterSpacing:'0.3em', color:'var(--ivory)'}}>
+                R <span style={{color:'var(--gold-primary)', fontSize:'0.5em', margin:'0 4px'}}>◆</span> B
+              </span>
             </motion.span>
           )}
 
@@ -299,7 +329,7 @@ export default function HomePage() {
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
-            className="p-2 -mr-2 text-[#f5f0e8] hover:text-[#c9a84c] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a84c]/60"
+            className="p-2 -mr-2 text-[var(--color-gold-primary)] hover:text-[var(--color-gold-bright)] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--color-gold-primary)]/60"
           >
             {menuOpen
               ? <X    size={20} strokeWidth={1} aria-hidden="true" />
@@ -339,7 +369,7 @@ export default function HomePage() {
                   animate="visible"
                   exit="exit"
                   onClick={() => setMenuOpen(false)}
-                  className="text-2xl tracking-[0.2em] uppercase italic text-[#f5f0e8]/75 hover:text-[#c9a84c] transition-colors duration-300"
+                  className="text-2xl tracking-[0.2em] uppercase italic text-[#f5f0e8]/75 hover:text-[var(--gold-bright)] transition-colors duration-300 border-b border-transparent hover:border-[var(--gold-primary)]"
                   style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
                 >
                   {label}
@@ -413,14 +443,32 @@ export default function HomePage() {
                   <X size={14} strokeWidth={1} aria-hidden="true" />
                 </a>
                 <a
-                  href={VTC_URL}
+                  href={RBATIA_TELEGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="VTC"
-                  className="text-[9px] tracking-[0.3em] uppercase font-light text-[#f5f0e8]/40 hover:text-[#c9a84c]/70 transition-colors duration-300"
-                  style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
+                  aria-label="Solliciter sur Telegram"
+                  className="uppercase"
+                  style={{
+                    fontFamily: 'Jost',
+                    fontSize: '0.65rem',
+                    letterSpacing: '0.25em',
+                    textTransform: 'uppercase',
+                    color: 'var(--gold-primary)',
+                    border: '1px solid var(--gold-border)',
+                    padding: '0.55rem 1.4rem',
+                    background: 'transparent',
+                    transition: 'all 0.3s',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'var(--gold-primary)'
+                    e.currentTarget.style.color = 'var(--bg-primary)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'transparent'
+                    e.currentTarget.style.color = 'var(--gold-primary)'
+                  }}
                 >
-                  V·T·C
+                  Solliciter
                 </a>
               </motion.div>
 
@@ -435,92 +483,54 @@ export default function HomePage() {
           )}
         </AnimatePresence>
 
-        {/* Contenu hero centré */}
-        {mounted && (
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="relative z-10 flex-1 flex flex-col items-center justify-end px-6 pb-6"
-          >
-            <motion.div
-              variants={lineExpand}
-              className="w-10 h-px bg-[#c9a84c] mb-7 self-center"
-              aria-hidden="true"
-            />
+        <div style={{textAlign:'center', position:'relative', zIndex:2, padding:'0 2rem'}}>
 
-            <motion.h1
-              variants={fadeUp}
-              className="text-[clamp(3rem,14vw,7rem)] leading-[0.9] tracking-tight text-[#f5f0e8] italic font-normal text-center"
-              style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
-            >
-              Diabolica
-            </motion.h1>
+          <p style={{fontFamily:'Jost', fontSize:'0.62rem', letterSpacing:'0.55em', textTransform:'uppercase',
+                     color:'var(--gold-primary)', marginBottom:'2rem'}}>
+            🇲🇦 &nbsp; Rabat · Lyon · Paris &nbsp; 🇲🇦
+          </p>
 
-            <motion.span
-              variants={fadeUp}
-              className="block text-[clamp(3rem,14vw,7rem)] leading-[1.05] tracking-[0.08em] text-[#c9a84c] font-bold text-center mb-5"
-              style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
-            >
-              Jade
-            </motion.span>
+          <h1 style={{fontFamily:'Cormorant Garamond, serif', fontSize:'clamp(5rem,14vw,10rem)',
+                      fontWeight:300, lineHeight:0.9, color:'var(--ivory)'}}>
+            Rbatia
+            <em style={{display:'block', fontStyle:'italic', fontWeight:300, fontSize:'0.55em',
+                        color:'var(--text-secondary)', letterSpacing:'0.08em', marginTop:'0.5rem'}}>
+              La Reine
+            </em>
+          </h1>
 
-            <motion.p
-              variants={fadeUp}
-              className="text-[9px] md:text-[10px] tracking-[0.45em] uppercase font-light text-[#f5f0e8]/45 mb-10"
-              style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
-            >
-              Ego Slayer · Lifestyle Domina · Born to be spoiled
-            </motion.p>
-          </motion.div>
-        )}
+          {/* Séparateur doré */}
+          <div style={{display:'flex', alignItems:'center', gap:'1.2rem', justifyContent:'center', margin:'2rem 0'}}>
+            <div style={{width:'100px', height:'1px', background:'linear-gradient(90deg,transparent,var(--gold-primary),transparent)'}}/>
+            <span style={{color:'var(--gold-primary)', fontSize:'0.6rem', letterSpacing:'0.5em'}}>◆ ◆ ◆</span>
+            <div style={{width:'100px', height:'1px', background:'linear-gradient(90deg,transparent,var(--gold-primary),transparent)'}}/>
+          </div>
 
-        {/* CTA zone pouce */}
-        <div className="relative z-10 pb-12 px-8 flex flex-col items-center gap-3">
-          {mounted && (
-            <>
-              <motion.a
-                href={TELEGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 28 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.55, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ scale: 1.015 }}
-                whileTap={{ scale: 0.97 }}
-                className="group relative w-full max-w-[280px] py-[18px] px-6 text-center border border-[#c9a84c]/38 hover:border-[#c9a84c]/80 transition-colors duration-500 overflow-hidden focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a84c]/60"
-                style={{ animation: 'luxePulse 3.8s ease-in-out 2.8s infinite' }}
-                aria-label="Rejoindre Diabolica Jade sur Telegram"
-              >
-                <span aria-hidden="true" className="absolute inset-0 bg-[#c9a84c]/0 group-hover:bg-[#c9a84c]/8 transition-colors duration-500" />
-                <span aria-hidden="true" className="absolute top-0 -left-full h-full w-1/2 bg-gradient-to-r from-transparent via-[#c9a84c]/22 to-transparent group-hover:left-[160%] transition-[left] duration-700 ease-out" />
-                <span
-                  className="relative z-10 text-[9px] tracking-[0.35em] uppercase font-light text-[#f5f0e8]"
-                  style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
-                >
-                  Supplié pour une réponse
-                </span>
-              </motion.a>
+          <p style={{fontFamily:'Jost', fontSize:'0.68rem', letterSpacing:'0.3em', textTransform:'uppercase',
+                     color:'var(--text-muted)', marginBottom:'3.5rem'}}>
+            Née de lignée royale &nbsp;·&nbsp; Vouée à être adorée &nbsp;·&nbsp; Inaccessible par nature
+          </p>
 
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2.0, duration: 0.8 }}
-                className="flex items-center gap-3"
-                aria-hidden="true"
-              >
-                <div className="w-px h-2 bg-[#f5f0e8]/15" />
-                <span
-                  className="text-[7.5px] tracking-[0.3em] uppercase text-[#f5f0e8]/22"
-                  style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
-                >
-                  Telegram exclusif
-                </span>
-                <div className="w-px h-2 bg-[#f5f0e8]/15" />
-              </motion.div>
-            </>
-          )}
+          <a href="https://t.me/domrabatia" style={{display:'inline-flex', flexDirection:'column', alignItems:'center', gap:'0.6rem', textDecoration:'none'}}>
+            <span style={{fontFamily:'Jost', fontSize:'0.65rem', fontWeight:500, letterSpacing:'0.3em',
+                          textTransform:'uppercase', color:'var(--bg-primary)',
+                          background:'linear-gradient(135deg,var(--gold-primary),var(--gold-bright),var(--gold-primary))',
+                          padding:'1rem 2.8rem'}}>
+              Solliciter une audience
+            </span>
+            <span style={{fontSize:'0.58rem', letterSpacing:'0.25em', textTransform:'uppercase', color:'var(--text-muted)'}}>
+              Canal privé &amp; exclusif
+            </span>
+          </a>
         </div>
+
+        <a
+          href="#about"
+          aria-label="Défiler vers la section suivante"
+          className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 text-[var(--color-gold-primary)] text-xl leading-none"
+        >
+          ↓
+        </a>
       </main>
 
       {/* ════════════════════════════════════════════════════════

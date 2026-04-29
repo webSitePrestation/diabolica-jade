@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
+import { SectionDivider } from '@/components/SectionDivider'
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
 
@@ -70,7 +71,7 @@ export default function AboutSection() {
               {/* Numéro décoratif */}
               <span
                 aria-hidden="true"
-                className="absolute top-12 right-8 text-[11rem] xl:text-[14rem] font-bold italic leading-none text-[#f5f0e8]/[0.028] pointer-events-none select-none"
+                className="absolute top-12 right-8 text-[11rem] xl:text-[14rem] font-bold italic leading-none text-[var(--color-gold-muted)]/[0.22] pointer-events-none select-none"
                 style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
               >
                 02
@@ -83,9 +84,11 @@ export default function AboutSection() {
                   className="text-[9px] tracking-[0.5em] uppercase text-[#c9a84c] font-light"
                   style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
                 >
-                  À propos
+                  La Reine
                 </span>
               </motion.div>
+
+              <SectionDivider />
 
               {/* Titre */}
               <motion.h2
@@ -93,7 +96,7 @@ export default function AboutSection() {
                 className="text-[2.6rem] xl:text-[3.2rem] leading-[1.08] tracking-tight text-[#f5f0e8] italic font-normal"
                 style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
               >
-                Je suis <span className="not-italic font-bold text-[#c9a84c]">LA tentation.</span>
+                Je suis <em style={{ color: 'var(--gold-primary)' }}>l&apos;origine.</em>
               </motion.h2>
 
               {/* Corps */}
@@ -102,31 +105,36 @@ export default function AboutSection() {
                   className="text-[14px] leading-[1.95] text-[#f5f0e8]/55 font-light"
                   style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
                 >
-                  Belle comme une rose, douloureuse comme ses épines.
-                  Je ne cours pas après vous — vous suppliez pour retenir
-                  mon attention. Ce n&apos;est pas de l&apos;arrogance.
-                  C&apos;est l&apos;ordre naturel des choses.
+                  Mon nom vient de Rabat, la capitale royale du Maroc. Ce n&apos;est pas un hasard — c&apos;est une naissance.
+                  Je ne séduis pas. Je règne. Vous ne m&apos;approchez pas. Vous êtes convoqué.
                 </p>
                 <p
                   className="text-[14px] leading-[1.95] text-[#f5f0e8]/55 font-light"
                   style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
                 >
-                  Rentrer dans mon univers est difficile.
+                  Ce que vous ressentez en me découvrant n&apos;est pas du désir.
                   <br />
-                  En ressortir l&apos;est encore plus.
+                  C&apos;est la reconnaissance instinctive d&apos;une hiérarchie naturelle.
                 </p>
               </motion.div>
 
               {/* Citation */}
               <motion.blockquote
                 {...fadeUp(0.3)}
-                className="border-l-2 border-[#c9a84c]/35 pl-6"
+                style={{
+                  borderLeft: '1px solid var(--gold-primary)',
+                  paddingLeft: '2rem',
+                  fontFamily: 'Cormorant Garamond, serif',
+                  fontStyle: 'italic',
+                  fontSize: '1.25rem',
+                  color: 'var(--ivory)',
+                }}
               >
                 <p
-                  className="text-[14px] italic leading-relaxed text-[#f5f0e8]/38"
-                  style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
+                  className="text-[14px] italic leading-relaxed text-[var(--color-ivory)]"
+                  style={{ fontFamily: 'var(--font-cormorant-garamond, Georgia, serif)' }}
                 >
-                  &ldquo; C&apos;est moi qui décide de tes limites. &rdquo;
+                  &laquo; Je n&apos;ai pas à me justifier. Les reines ne s&apos;expliquent pas. &raquo;
                 </p>
               </motion.blockquote>
 
@@ -137,9 +145,9 @@ export default function AboutSection() {
               <motion.div {...fadeUp(0.4)} className="flex gap-12">
                 {(
                   [
-                    { value: '100%', label: 'Exclusif'  },
-                    { value: 'FR',   label: 'Contenu'   },
-                    { value: '∞',    label: 'Intensité' },
+                    { value: 'Lignée', label: 'Royale'   },
+                    { value: 'Rabat',  label: 'Origines' },
+                    { value: '∞',      label: 'Dévotion' },
                   ] as const
                 ).map(({ value, label }) => (
                   <div key={label} className="flex flex-col gap-2">
@@ -221,16 +229,18 @@ export default function AboutSection() {
               className="text-[8.5px] tracking-[0.48em] uppercase text-[#c9a84c] font-light"
               style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
             >
-              À propos
+              La Reine
             </span>
           </motion.div>
+
+          <SectionDivider />
 
           <motion.h2
             {...fadeUp(0.08)}
             className="text-[clamp(1.9rem,8vw,2.4rem)] leading-[1.1] tracking-tight text-[#f5f0e8] italic font-normal"
             style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
           >
-            Je suis <span className="not-italic font-bold text-[#c9a84c]">LA tentation.</span>
+            Je suis <em style={{ color: 'var(--gold-primary)' }}>l&apos;origine.</em>
           </motion.h2>
 
           <motion.div {...fadeUp(0.16)} className="flex flex-col gap-4">
@@ -238,27 +248,35 @@ export default function AboutSection() {
               className="text-[13px] leading-[1.9] text-[#f5f0e8]/55 font-light"
               style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
             >
-              Belle comme une rose, douloureuse comme ses épines.
-              Je ne cours pas après vous — vous suppliez pour retenir
-              mon attention. Ce n&apos;est pas de l&apos;arrogance.
-              C&apos;est l&apos;ordre naturel des choses.
+              Mon nom vient de Rabat, la capitale royale du Maroc. Ce n&apos;est pas un hasard — c&apos;est une naissance.
+              Je ne séduis pas. Je règne. Vous ne m&apos;approchez pas. Vous êtes convoqué.
             </p>
             <p
               className="text-[13px] leading-[1.9] text-[#f5f0e8]/55 font-light"
               style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
             >
-              Rentrer dans mon univers est difficile.
+              Ce que vous ressentez en me découvrant n&apos;est pas du désir.
               <br />
-              En ressortir l&apos;est encore plus.
+              C&apos;est la reconnaissance instinctive d&apos;une hiérarchie naturelle.
             </p>
           </motion.div>
 
-          <motion.blockquote {...fadeUp(0.24)} className="border-l border-[#c9a84c]/40 pl-5">
+          <motion.blockquote
+            {...fadeUp(0.24)}
+            style={{
+              borderLeft: '1px solid var(--gold-primary)',
+              paddingLeft: '2rem',
+              fontFamily: 'Cormorant Garamond, serif',
+              fontStyle: 'italic',
+              fontSize: '1.25rem',
+              color: 'var(--ivory)',
+            }}
+          >
             <p
-              className="text-[13px] italic leading-relaxed text-[#f5f0e8]/40"
-              style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
+              className="text-[13px] italic leading-relaxed text-[var(--color-ivory)]"
+              style={{ fontFamily: 'var(--font-cormorant-garamond, Georgia, serif)' }}
             >
-              &ldquo; C&apos;est moi qui décide de tes limites. &rdquo;
+              &laquo; Je n&apos;ai pas à me justifier. Les reines ne s&apos;expliquent pas. &raquo;
             </p>
           </motion.blockquote>
 
@@ -267,9 +285,9 @@ export default function AboutSection() {
           <motion.div {...fadeUp(0.36)} className="flex gap-10">
             {(
               [
-                { value: '100%', label: 'Exclusif'  },
-                { value: 'FR',   label: 'Contenu'   },
-                { value: '∞',    label: 'Intensité' },
+                { value: 'Lignée', label: 'Royale'   },
+                { value: 'Rabat',  label: 'Origines' },
+                { value: '∞',      label: 'Dévotion' },
               ] as const
             ).map(({ value, label }) => (
               <div key={label} className="flex flex-col gap-1.5">

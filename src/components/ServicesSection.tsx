@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Sparkles, Crown, MessageCircle } from 'lucide-react'
+import { SectionDivider } from '@/components/SectionDivider'
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
 const TELEGRAM_URL = 'https://t.me/DiabolicaJade'
@@ -20,44 +21,44 @@ interface Service {
 const SERVICES: Service[] = [
   {
     icon:      <Sparkles size={18} strokeWidth={1} />,
-    label:     'Lifestyle',
-    title:     'Lifestyle & Teasing',
+    label:     'La Cour au Quotidien',
+    title:     'Présence Royale',
     description:
-      'Photos quotidiennes, mises en scène soignées et esthétique raffinée. Un teasing permanent dans une ambiance sombre, élégante et séduisante.',
+      'Aperçus de ma vie, mises en scène soignées et esthétique orientale. Une présence permanente pour ceux qui méritent de me voir exister.',
     details: [
       'Visuels quotidiens premium',
-      'Mises en scène signature',
-      'Atmosphère dark luxury',
+      'Mise en scène signature',
+      'Ambiance Orient Luxury',
     ],
-    cta:       'Découvrir',
+    cta:       'Entrer dans la Cour',
     highlight: false,
   },
   {
     icon:      <Crown size={18} strokeWidth={1} />,
-    label:     'Univers Domina',
-    title:     'Domination & Pouvoir',
+    label:     'Domination',
+    title:     'Pouvoir Ancestral',
     description:
-      'Une seule chance. Ne la gâchez pas. Je ne donne pas de secondes opportunités à ceux qui n\'ont pas su saisir la première.',
+      'Une seule audience. Une seule chance. Mon regard peut vous élever ou vous anéantir — à ma seule discrétion.',
     details: [
-      'Dominance affirmée',
-      'Énergie intense et codifiée',
-      'Expérience immersive',
+      'Dominance de lignée',
+      'Rituel codifié',
+      'Expérience totale',
     ],
-    cta:       'Découvrir',
-    highlight: true,
+    cta:       'Solliciter l\'accès',
+    highlight: false,
   },
   {
     icon:      <MessageCircle size={18} strokeWidth={1} />,
-    label:     'Direct',
-    title:     'Contact Privé',
+    label:     'Audience Privée',
+    title:     'Convocation Directe',
     description:
-      'Pour celles et ceux qui veulent aller plus loin, je suis joignable en DM direct sur Telegram pour un échange personnel et confidentiel.',
+      'Pour les rares qui ont su se distinguer. Une audience en DM, accordée à ma seule discrétion.',
     details: [
       'DM Telegram direct',
-      'Contact personnel',
+      'Réservé aux méritants',
       'Échange confidentiel',
     ],
-    cta:       'Me contacter',
+    cta:       'Demander une audience',
     highlight: false,
   },
 ]
@@ -77,15 +78,29 @@ function ServiceCard({
       initial={{ opacity: 0, y: 36 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 36 }}
       transition={{ delay: 0.28 + index * 0.13, duration: 0.9, ease: EASE }}
+      whileHover={{
+        background: 'var(--bg-elevated)',
+        boxShadow: '0 0 40px var(--gold-glow)',
+        transform: 'translateY(-4px)',
+      }}
       className={`
         group relative flex flex-col gap-6 p-8 lg:p-10
-        border transition-all duration-500 overflow-hidden
-        ${service.highlight
-          ? 'border-[#c9a84c]/55 bg-[#0e0e0e]/90 shadow-[0_0_80px_rgba(201,168,76,0.09)]'
-          : 'border-[#f5f0e8]/8 bg-[#0c0c0c]/60 hover:border-[#c9a84c]/28'
-        }
+        overflow-hidden
       `}
+      style={{
+        background: 'var(--bg-card)',
+        border: '1px solid var(--gold-border)',
+        transition: 'all 0.5s cubic-bezier(0.16,1,0.3,1)',
+      }}
     >
+      {/* Ornement doré haut-droit */}
+      <span
+        aria-hidden="true"
+        className="absolute top-3 right-3 text-[8px] leading-none text-[var(--color-gold-primary)]"
+      >
+        ◆
+      </span>
+
       {/* Shimmer au hover */}
       <span
         aria-hidden="true"
@@ -180,10 +195,8 @@ function ServiceCard({
             text-[9px] tracking-[0.35em] uppercase font-light
             border transition-all duration-400
             focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a84c]/60
-            ${service.highlight
-              ? 'bg-[#c9a84c] border-[#c9a84c] text-[#0a0a0a] hover:bg-[#c9a84c]/85'
-              : 'border-[#f5f0e8]/12 text-[#f5f0e8]/60 hover:border-[#c9a84c]/55 hover:text-[#c9a84c]'
-            }
+            border-[var(--color-border-gold)] text-[var(--color-text-secondary)]
+            hover:border-[var(--color-gold-primary)] hover:text-[var(--color-gold-primary)]
           `}
           style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
         >
@@ -233,15 +246,17 @@ export default function ServicesSection() {
           </span>
         </motion.div>
 
+        <SectionDivider />
+
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-16 lg:mb-20">
           <motion.h2
             {...fadeUp(0.1)}
             className="text-[clamp(2rem,5vw,3.5rem)] leading-[1.06] tracking-tight text-[#f5f0e8] italic font-normal"
             style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
           >
-            Vous n&apos;accédez pas à mon monde.
+            On ne se présente pas à une Reine.
             <br />
-            <span className="not-italic font-bold text-[#c9a84c]">Vous y êtes admis.</span>
+            <em style={{ color: 'var(--gold-primary)' }}>On est convoqué.</em>
           </motion.h2>
 
           <motion.p
@@ -249,9 +264,7 @@ export default function ServicesSection() {
             className="text-[13px] leading-[1.8] text-[#f5f0e8]/42 font-light max-w-xs lg:text-right"
             style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
           >
-            Telegram est gratuit et ouvert.
-            <br className="hidden lg:block" />
-            Découvrez mon univers, puis contactez-moi en direct.
+            Mon canal Telegram est ouvert. Découvrez mon univers. Puis sollicitez une audience — si vous pensez en être digne.
           </motion.p>
         </div>
 
