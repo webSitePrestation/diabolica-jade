@@ -3,11 +3,11 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
-import { Send } from 'lucide-react'
+import { X } from 'lucide-react'
 import { SectionDivider } from '@/components/SectionDivider'
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
-const TELEGRAM_URL = 'https://t.me/DiabolicaJade'
+const X_URL = 'https://x.com/DomRabatia'
 
 /*
   Remplace les `src` par tes vraies photos dans /public/
@@ -94,7 +94,7 @@ export default function TeasingSection() {
               className="text-[13px] leading-[1.8] text-[#f5f0e8]/42 font-light max-w-xs lg:text-right"
               style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
             >
-              Rejoignez mon Telegram pour accéder
+              Rejoignez mon X pour accéder
               <br className="hidden lg:block" />
               à l&apos;intégralité du contenu en continu.
             </motion.p>
@@ -154,7 +154,7 @@ export default function TeasingSection() {
                 "
               />
 
-              {/* Label Telegram au hover — slide depuis le bas */}
+              {/* Label X au hover — slide depuis le bas */}
               <div
                 className="
                   absolute bottom-0 left-0 right-0
@@ -165,12 +165,12 @@ export default function TeasingSection() {
                   bg-gradient-to-t from-[#0a0a0a]/90 to-transparent
                 "
               >
-                <Send size={10} strokeWidth={1.5} className="text-[#c9a84c]" />
+                <X size={10} strokeWidth={1.5} className="text-[#c9a84c]" />
                 <span
                   className="text-[7.5px] tracking-[0.35em] uppercase text-[#f5f0e8]/80 font-light"
                   style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
                 >
-                  Voir sur Telegram
+                  Voir sur X
                 </span>
               </div>
             </motion.div>
@@ -201,9 +201,9 @@ export default function TeasingSection() {
             Rejoignez gratuitement pour ne rien manquer.
           </p>
 
-          {/* Bouton Telegram */}
+          {/* Bouton X */}
           <motion.a
-            href={TELEGRAM_URL}
+            href={X_URL}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.015 }}
@@ -232,7 +232,7 @@ export default function TeasingSection() {
                 group-hover:left-[160%] transition-[left] duration-700 ease-out
               "
             />
-            <Send
+            <X
               size={12}
               strokeWidth={1.5}
               className="relative z-10 text-[#c9a84c]"
@@ -242,7 +242,7 @@ export default function TeasingSection() {
               className="relative z-10 text-[9px] tracking-[0.38em] uppercase font-light text-[#f5f0e8]"
               style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
             >
-              Rejoindre mon Telegram
+              Rejoindre mon X
             </span>
           </motion.a>
 

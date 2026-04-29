@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence, Variants } from 'framer-motion'
-import { Menu, X, Send } from 'lucide-react'
+import { CreditCard, Menu, X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import AboutSection    from '@/components/AboutSection'
@@ -14,9 +14,8 @@ import { SectionDivider } from '@/components/SectionDivider'
 /* ─────────────────────────────────────────────────────────────────
    CONFIG
 ───────────────────────────────────────────────────────────────── */
-const TELEGRAM_URL = 'https://t.me/DiabolicaJade'
-const RBATIA_TELEGRAM_URL = 'https://t.me/rbatia'
-const X_URL = 'https://x.com/diabolicaisback?s=21'
+const X_URL = 'https://x.com/DomRabatia'
+const REVOLUT_URL = 'https://revolut.me/ayatawu46'
 
 interface NavLink { label: string; href: string }
 
@@ -67,7 +66,6 @@ const menuLinkVariants: Variants = {
 export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
   const mounted = true
-  const [showStickyNav, setShowStickyNav] = useState<boolean>(false)
   const [introVisible, setIntroVisible] = useState<boolean>(true)
   const [isNavScrolled, setIsNavScrolled] = useState<boolean>(false)
 
@@ -83,22 +81,6 @@ export default function HomePage() {
     document.body.style.overflow = menuOpen || introVisible ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [menuOpen, introVisible])
-
-  useEffect(() => {
-    const toggleStickyNav = () => {
-      const heroHeight = window.innerHeight
-      setShowStickyNav(window.scrollY > heroHeight - 140)
-    }
-
-    toggleStickyNav()
-    window.addEventListener('scroll', toggleStickyNav, { passive: true })
-    window.addEventListener('resize', toggleStickyNav)
-
-    return () => {
-      window.removeEventListener('scroll', toggleStickyNav)
-      window.removeEventListener('resize', toggleStickyNav)
-    }
-  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -151,7 +133,7 @@ export default function HomePage() {
       <motion.nav
         aria-label="Navigation sections"
         initial={false}
-        animate={showStickyNav ? { opacity: 1, y: 0 } : { opacity: 0, y: -18 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
         className={`
           fixed top-3 left-1/2 -translate-x-1/2 z-50
@@ -159,7 +141,7 @@ export default function HomePage() {
           px-7 py-3 border-b border-[var(--color-border-gold)]
           bg-[rgba(7,5,10,0.95)] backdrop-blur-md
           shadow-[0_10px_40px_rgba(0,0,0,0.38)]
-          ${showStickyNav ? 'pointer-events-auto' : 'pointer-events-none'}
+          pointer-events-auto
         `}
       >
         {NAV_LINKS.map(({ label, href }) => (
@@ -225,15 +207,6 @@ export default function HomePage() {
 
         <div className="hidden lg:flex items-center gap-3 pl-2 ml-2 border-l border-[#f5f0e8]/10">
           <a
-            href={TELEGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Telegram"
-            className="text-[#f5f0e8]/40 hover:text-[#c9a84c]/70 transition-colors duration-300"
-          >
-            <Send size={14} strokeWidth={1} aria-hidden="true" />
-          </a>
-          <a
             href={X_URL}
             target="_blank"
             rel="noopener noreferrer"
@@ -243,10 +216,19 @@ export default function HomePage() {
             <X size={14} strokeWidth={1} aria-hidden="true" />
           </a>
           <a
-            href={RBATIA_TELEGRAM_URL}
+            href={REVOLUT_URL}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Solliciter sur Telegram"
+            aria-label="Revolut"
+            className="text-[#f5f0e8]/40 hover:text-[#c9a84c]/70 transition-colors duration-300"
+          >
+            <CreditCard size={14} strokeWidth={1} aria-hidden="true" />
+          </a>
+          <a
+            href={REVOLUT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Solliciter sur Revolut"
             className="uppercase"
             style={{
               fontFamily: 'Jost',
@@ -272,6 +254,192 @@ export default function HomePage() {
           </a>
         </div>
       </motion.nav>
+
+      {/* Navigation mobile globale (toujours visible) */}
+      <nav
+        className={`
+          fixed top-0 left-0 right-0 z-[80] md:hidden
+          flex items-center justify-between px-6 pt-6 pb-4
+        `}
+        aria-label="Navigation principale"
+        style={
+          isNavScrolled
+            ? { background: 'rgba(6,4,12,0.97)', borderBottom: '1px solid var(--gold-border)' }
+            : { background: 'rgba(6,4,12,0.82)', borderBottom: '1px solid var(--gold-border)' }
+        }
+      >
+        {mounted && (
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.3, duration: 0.8 }}
+            className="text-[10px] tracking-[0.5em] font-light text-[#c9a84c] select-none"
+            style={{ fontFamily: 'var(--font-cinzel, Georgia, serif)' }}
+          >
+            <span style={{fontFamily:'Cinzel,serif', letterSpacing:'0.3em', color:'var(--ivory)'}}>
+              R <span style={{color:'var(--gold-primary)', fontSize:'0.5em', margin:'0 4px'}}>◆</span> B
+            </span>
+          </motion.span>
+        )}
+
+        <button
+          onClick={() => setMenuOpen((p) => !p)}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+          aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+          className="p-2 -mr-2 text-[var(--color-gold-primary)] hover:text-[var(--color-gold-bright)] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--color-gold-primary)]/60"
+        >
+          {menuOpen
+            ? <X    size={20} strokeWidth={1} aria-hidden="true" />
+            : <Menu size={20} strokeWidth={1} aria-hidden="true" />
+          }
+        </button>
+      </nav>
+
+      {/* Menu overlay mobile global */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            variants={menuOverlay}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="fixed inset-0 z-[85] bg-[#0a0a0a]/96 backdrop-blur-sm flex flex-col items-center justify-center gap-10"
+          >
+            <button
+              onClick={() => setMenuOpen(false)}
+              aria-label="Fermer le menu"
+              className="absolute top-10 right-6 p-2 text-[#f5f0e8]/40 hover:text-[#c9a84c] transition-colors"
+            >
+              <X size={20} strokeWidth={1} />
+            </button>
+
+            {NAV_LINKS.map(({ label, href }, i) => (
+              <motion.a
+                key={label}
+                href={href}
+                custom={i}
+                variants={menuLinkVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                onClick={() => setMenuOpen(false)}
+                className="text-2xl tracking-[0.2em] uppercase italic text-[#f5f0e8]/75 hover:text-[var(--gold-bright)] transition-colors duration-300 border-b border-transparent hover:border-[var(--gold-primary)]"
+                style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
+              >
+                {label}
+              </motion.a>
+            ))}
+
+            <motion.div
+              custom={NAV_LINKS.length}
+              variants={menuLinkVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="mt-2 flex flex-col items-center gap-3"
+            >
+              <span
+                className="text-[8px] tracking-[0.35em] uppercase text-[#f5f0e8]/28"
+                style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
+              >
+                Ressources
+              </span>
+              <div className="flex flex-col items-center gap-2">
+                <Link
+                  href="/pratiques"
+                  onClick={() => setMenuOpen(false)}
+                  className="text-[11px] tracking-[0.22em] uppercase text-[#f5f0e8]/62 hover:text-[#c9a84c] transition-colors duration-300"
+                  style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
+                >
+                  Pratiques
+                </Link>
+                <Link
+                  href="/protocole"
+                  onClick={() => setMenuOpen(false)}
+                  className="text-[11px] tracking-[0.22em] uppercase text-[#f5f0e8]/62 hover:text-[#c9a84c] transition-colors duration-300"
+                  style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
+                >
+                  Protocole
+                </Link>
+                <Link
+                  href="/blog"
+                  onClick={() => setMenuOpen(false)}
+                  className="text-[11px] tracking-[0.22em] uppercase text-[#f5f0e8]/62 hover:text-[#c9a84c] transition-colors duration-300"
+                  style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
+                >
+                  Journal
+                </Link>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="flex items-center gap-4 mt-1"
+            >
+              <a
+                href={X_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X"
+                className="text-[#f5f0e8]/40 hover:text-[#c9a84c]/70 transition-colors duration-300"
+              >
+                <X size={14} strokeWidth={1} aria-hidden="true" />
+              </a>
+              <a
+                href={REVOLUT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Revolut"
+                className="text-[#f5f0e8]/40 hover:text-[#c9a84c]/70 transition-colors duration-300"
+              >
+                <CreditCard size={14} strokeWidth={1} aria-hidden="true" />
+              </a>
+              <a
+                href={REVOLUT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Solliciter sur Revolut"
+                className="uppercase"
+                style={{
+                  fontFamily: 'Jost',
+                  fontSize: '0.65rem',
+                  letterSpacing: '0.25em',
+                  textTransform: 'uppercase',
+                  color: 'var(--gold-primary)',
+                  border: '1px solid var(--gold-border)',
+                  padding: '0.55rem 1.4rem',
+                  background: 'transparent',
+                  transition: 'all 0.3s',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'var(--gold-primary)'
+                  e.currentTarget.style.color = 'var(--bg-primary)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'transparent'
+                  e.currentTarget.style.color = 'var(--gold-primary)'
+                }}
+              >
+                Solliciter
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+              className="w-8 h-px bg-[#c9a84c]/50 mt-4"
+              aria-hidden="true"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* ════════════════════════════════════════════════════════
           HERO — plein écran
@@ -299,189 +467,6 @@ export default function HomePage() {
             }}
           />
         </div>
-
-        {/* Navigation */}
-        <nav
-          className="relative z-30 flex items-center justify-between px-6 pt-10 md:px-12"
-          aria-label="Navigation principale"
-          style={
-            isNavScrolled
-              ? { background: 'rgba(6,4,12,0.97)', borderBottom: '1px solid var(--gold-border)' }
-              : { background: 'transparent', borderBottom: '1px solid transparent' }
-          }
-        >
-          {mounted && (
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.3, duration: 0.8 }}
-              className="text-[10px] tracking-[0.5em] font-light text-[#c9a84c] select-none"
-              style={{ fontFamily: 'var(--font-cinzel, Georgia, serif)' }}
-            >
-              <span style={{fontFamily:'Cinzel,serif', letterSpacing:'0.3em', color:'var(--ivory)'}}>
-                R <span style={{color:'var(--gold-primary)', fontSize:'0.5em', margin:'0 4px'}}>◆</span> B
-              </span>
-            </motion.span>
-          )}
-
-          <button
-            onClick={() => setMenuOpen((p) => !p)}
-            aria-expanded={menuOpen}
-            aria-controls="mobile-menu"
-            aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
-            className="p-2 -mr-2 text-[var(--color-gold-primary)] hover:text-[var(--color-gold-bright)] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--color-gold-primary)]/60"
-          >
-            {menuOpen
-              ? <X    size={20} strokeWidth={1} aria-hidden="true" />
-              : <Menu size={20} strokeWidth={1} aria-hidden="true" />
-            }
-          </button>
-        </nav>
-
-        {/* Menu overlay */}
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div
-              id="mobile-menu"
-              role="dialog"
-              aria-modal="true"
-              variants={menuOverlay}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="absolute inset-0 z-20 bg-[#0a0a0a]/96 backdrop-blur-sm flex flex-col items-center justify-center gap-10"
-            >
-              <button
-                onClick={() => setMenuOpen(false)}
-                aria-label="Fermer le menu"
-                className="absolute top-10 right-6 p-2 text-[#f5f0e8]/40 hover:text-[#c9a84c] transition-colors"
-              >
-                <X size={20} strokeWidth={1} />
-              </button>
-
-              {NAV_LINKS.map(({ label, href }, i) => (
-                <motion.a
-                  key={label}
-                  href={href}
-                  custom={i}
-                  variants={menuLinkVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  onClick={() => setMenuOpen(false)}
-                  className="text-2xl tracking-[0.2em] uppercase italic text-[#f5f0e8]/75 hover:text-[var(--gold-bright)] transition-colors duration-300 border-b border-transparent hover:border-[var(--gold-primary)]"
-                  style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
-                >
-                  {label}
-                </motion.a>
-              ))}
-
-              <motion.div
-                custom={NAV_LINKS.length}
-                variants={menuLinkVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                className="mt-2 flex flex-col items-center gap-3"
-              >
-                <span
-                  className="text-[8px] tracking-[0.35em] uppercase text-[#f5f0e8]/28"
-                  style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
-                >
-                  Ressources
-                </span>
-                <div className="flex flex-col items-center gap-2">
-                  <Link
-                    href="/pratiques"
-                    onClick={() => setMenuOpen(false)}
-                    className="text-[11px] tracking-[0.22em] uppercase text-[#f5f0e8]/62 hover:text-[#c9a84c] transition-colors duration-300"
-                    style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
-                  >
-                    Pratiques
-                  </Link>
-                  <Link
-                    href="/protocole"
-                    onClick={() => setMenuOpen(false)}
-                    className="text-[11px] tracking-[0.22em] uppercase text-[#f5f0e8]/62 hover:text-[#c9a84c] transition-colors duration-300"
-                    style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
-                  >
-                    Protocole
-                  </Link>
-                  <Link
-                    href="/blog"
-                    onClick={() => setMenuOpen(false)}
-                    className="text-[11px] tracking-[0.22em] uppercase text-[#f5f0e8]/62 hover:text-[#c9a84c] transition-colors duration-300"
-                    style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
-                  >
-                    Journal
-                  </Link>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                className="flex items-center gap-4 mt-1"
-              >
-                <a
-                  href={TELEGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Telegram"
-                  className="text-[#f5f0e8]/40 hover:text-[#c9a84c]/70 transition-colors duration-300"
-                >
-                  <Send size={14} strokeWidth={1} aria-hidden="true" />
-                </a>
-                <a
-                  href={X_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="X"
-                  className="text-[#f5f0e8]/40 hover:text-[#c9a84c]/70 transition-colors duration-300"
-                >
-                  <X size={14} strokeWidth={1} aria-hidden="true" />
-                </a>
-                <a
-                  href={RBATIA_TELEGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Solliciter sur Telegram"
-                  className="uppercase"
-                  style={{
-                    fontFamily: 'Jost',
-                    fontSize: '0.65rem',
-                    letterSpacing: '0.25em',
-                    textTransform: 'uppercase',
-                    color: 'var(--gold-primary)',
-                    border: '1px solid var(--gold-border)',
-                    padding: '0.55rem 1.4rem',
-                    background: 'transparent',
-                    transition: 'all 0.3s',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'var(--gold-primary)'
-                    e.currentTarget.style.color = 'var(--bg-primary)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'transparent'
-                    e.currentTarget.style.color = 'var(--gold-primary)'
-                  }}
-                >
-                  Solliciter
-                </a>
-              </motion.div>
-
-              <motion.div
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 0.5, duration: 1 }}
-                className="w-8 h-px bg-[#c9a84c]/50 mt-4"
-                aria-hidden="true"
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
 
         <div style={{textAlign:'center', position:'relative', zIndex:2, padding:'0 2rem'}}>
 
@@ -511,7 +496,7 @@ export default function HomePage() {
             Née de lignée royale &nbsp;·&nbsp; Vouée à être adorée &nbsp;·&nbsp; Inaccessible par nature
           </p>
 
-          <a href="https://t.me/domrabatia" style={{display:'inline-flex', flexDirection:'column', alignItems:'center', gap:'0.6rem', textDecoration:'none'}}>
+          <a href={X_URL} target="_blank" rel="noopener noreferrer" style={{display:'inline-flex', flexDirection:'column', alignItems:'center', gap:'0.6rem', textDecoration:'none'}}>
             <span style={{fontFamily:'Jost', fontSize:'0.65rem', fontWeight:500, letterSpacing:'0.3em',
                           textTransform:'uppercase', color:'var(--bg-primary)',
                           background:'linear-gradient(135deg,var(--gold-primary),var(--gold-bright),var(--gold-primary))',
@@ -519,7 +504,7 @@ export default function HomePage() {
               Solliciter une audience
             </span>
             <span style={{fontSize:'0.58rem', letterSpacing:'0.25em', textTransform:'uppercase', color:'var(--text-muted)'}}>
-              Canal privé &amp; exclusif
+              Contact via X
             </span>
           </a>
         </div>

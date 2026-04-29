@@ -2,14 +2,15 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Send, X } from 'lucide-react'
+import { Crown, CreditCard, X } from 'lucide-react'
 import { SectionDivider } from '@/components/SectionDivider'
 
 /* ─────────────────────────────────────────────────────────────────
    CONFIG
 ───────────────────────────────────────────────────────────────── */
-const TELEGRAM_URL  = 'https://t.me/domrabatia'
-const X_URL         = 'https://x.com/domrabatia'
+const X_URL         = 'https://x.com/DomRabatia'
+const REVOLUT_URL   = 'https://revolut.me/ayatawu46'
+const BEACONS_URL   = 'https://beacons.ai/domrabatia'
 
 interface FooterLink {
   label: string
@@ -30,14 +31,19 @@ const RESOURCE_LINKS: FooterLink[] = [
 
 const SOCIAL_LINKS = [
   {
-    label: 'Telegram',
-    href: TELEGRAM_URL,
-    icon: <Send size={12} strokeWidth={1} aria-hidden="true" />,
-  },
-  {
     label: 'X',
     href: X_URL,
     icon: <X size={12} strokeWidth={1} aria-hidden="true" />,
+  },
+  {
+    label: 'Throne',
+    href: BEACONS_URL,
+    icon: <Crown size={12} strokeWidth={1} aria-hidden="true" />,
+  },
+  {
+    label: 'Revolut',
+    href: REVOLUT_URL,
+    icon: <CreditCard size={12} strokeWidth={1} aria-hidden="true" />,
   },
 ] as const
 
@@ -115,9 +121,9 @@ export default function Footer() {
 
         <SectionDivider />
 
-        {/* Bouton Telegram */}
+        {/* Bouton principal */}
         <motion.a
-          href={TELEGRAM_URL}
+          href={REVOLUT_URL}
           target="_blank"
           rel="noopener noreferrer"
           initial={{ opacity: 0, y: 20 }}
@@ -125,7 +131,7 @@ export default function Footer() {
           transition={{ delay: 0.38, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           whileHover={{ scale: 1.015 }}
           whileTap={{ scale: 0.97 }}
-          aria-label="Solliciter une audience sur Telegram"
+          aria-label="Payer sur Revolut"
           className="
             group relative
             flex items-center gap-3
@@ -149,7 +155,7 @@ export default function Footer() {
               group-hover:left-[160%] transition-[left] duration-700 ease-out
             "
           />
-          <Send
+          <CreditCard
             size={13}
             strokeWidth={1.5}
             className="relative z-10 text-[#c9a84c]"
@@ -159,7 +165,7 @@ export default function Footer() {
             className="relative z-10 text-[9px] tracking-[0.35em] uppercase font-light text-[#f5f0e8]"
             style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
           >
-            Solliciter une audience
+            Payer via Revolut
           </span>
         </motion.a>
 
@@ -260,6 +266,18 @@ export default function Footer() {
             </span>
           ))}
         </nav>
+      </div>
+
+      <div className="px-6 pb-10 md:px-12 text-center">
+        <a
+          href={BEACONS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[9px] tracking-[0.25em] uppercase font-light text-[#f5f0e8]/28 hover:text-[var(--gold-primary)] transition-colors duration-300"
+          style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
+        >
+          Beacons · beacons.ai/domrabatia
+        </a>
       </div>
 
     </footer>

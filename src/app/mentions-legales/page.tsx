@@ -1,8 +1,7 @@
 import Link from 'next/link'
 
-const TELEGRAM_URL = 'https://t.me/DiabolicaJade'
-const X_URL = 'https://x.com/diabolicaisback'
-const VTC_URL = 'https://www.vends-ta-culotte.com/user/117113/Diabolica+Jade'
+const X_URL = 'https://x.com/DomRabatia'
+const REVOLUT_URL = 'https://revolut.me/ayatawu46'
 
 export default function MentionsLegalesPage() {
   return (
@@ -125,16 +124,12 @@ export default function MentionsLegalesPage() {
             >
               Cette plateforme peut rediriger vers des services externes :
               {' '}
-              <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-[#f5f0e8]/80 hover:text-[#c9a84c] transition-colors duration-300">
-                Telegram
-              </a>
-              ,{' '}
               <a href={X_URL} target="_blank" rel="noopener noreferrer" className="text-[#f5f0e8]/80 hover:text-[#c9a84c] transition-colors duration-300">
                 X
               </a>
               {' '}et{' '}
-              <a href={VTC_URL} target="_blank" rel="noopener noreferrer" className="text-[#f5f0e8]/80 hover:text-[#c9a84c] transition-colors duration-300">
-                Vends-ta-culotte
+              <a href={REVOLUT_URL} target="_blank" rel="noopener noreferrer" className="text-[#f5f0e8]/80 hover:text-[#c9a84c] transition-colors duration-300">
+                Revolut
               </a>
               . Leur consultation implique leurs propres conditions d&apos;utilisation.
             </p>
@@ -154,10 +149,6 @@ export default function MentionsLegalesPage() {
             >
               Pour toute demande, le contact s&apos;effectue via
               {' '}
-              <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-[#f5f0e8]/80 hover:text-[#c9a84c] transition-colors duration-300">
-                Telegram
-              </a>
-              {' '}ou{' '}
               <a href={X_URL} target="_blank" rel="noopener noreferrer" className="text-[#f5f0e8]/80 hover:text-[#c9a84c] transition-colors duration-300">
                 X
               </a>

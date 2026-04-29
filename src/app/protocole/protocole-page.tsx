@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Send } from 'lucide-react'
+import { X } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 }
 
-const TELEGRAM_URL = 'https://t.me/DiabolicaJade'
+const X_URL = 'https://x.com/DomRabatia'
 
 interface Etape {
   numero: string
@@ -25,8 +25,8 @@ const ETAPES: Etape[] = [
   },
   {
     numero: '02',
-    titre:  'Rejoignez le Telegram',
-    texte:  'Abonnez-vous à mon canal Telegram gratuit. Prenez le temps de découvrir mon univers, mon contenu, mon style. Ce n\'est qu\'ensuite que vous me contactez.',
+    titre:  'Rejoignez mon X',
+    texte:  'Abonnez-vous à mon compte X. Prenez le temps de découvrir mon univers, mon contenu, mon style. Ce n\'est qu\'ensuite que vous me contactez.',
   },
   {
     numero: '03',
@@ -202,7 +202,7 @@ export default function ProtocolePage() {
           </p>
 
           <a
-            href={TELEGRAM_URL}
+            href={X_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="
@@ -216,12 +216,12 @@ export default function ProtocolePage() {
               aria-hidden="true"
               className="absolute inset-0 bg-[#c9a84c]/0 group-hover:bg-[#c9a84c]/8 transition-colors duration-500"
             />
-            <Send size={12} strokeWidth={1.5} className="relative z-10 text-[#c9a84c]" />
+            <X size={12} strokeWidth={1.5} className="relative z-10 text-[#c9a84c]" />
             <span
               className="relative z-10 text-[9px] tracking-[0.38em] uppercase font-light text-[#f5f0e8]"
               style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
             >
-              Me rejoindre sur Telegram
+              Me rejoindre sur X
             </span>
           </a>
 

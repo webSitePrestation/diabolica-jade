@@ -6,7 +6,7 @@ import { Sparkles, Crown, MessageCircle } from 'lucide-react'
 import { SectionDivider } from '@/components/SectionDivider'
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
-const TELEGRAM_URL = 'https://t.me/DiabolicaJade'
+const X_URL = 'https://x.com/DomRabatia'
 
 interface Service {
   icon:        React.ReactNode
@@ -54,7 +54,7 @@ const SERVICES: Service[] = [
     description:
       'Pour les rares qui ont su se distinguer. Une audience en DM, accordée à ma seule discrétion.',
     details: [
-      'DM Telegram direct',
+      'DM X direct',
       'Réservé aux méritants',
       'Échange confidentiel',
     ],
@@ -187,7 +187,7 @@ function ServiceCard({
       {/* CTA */}
       <div className="mt-auto pt-2">
         <a
-          href={TELEGRAM_URL}
+          href={X_URL}
           target="_blank"
           rel="noopener noreferrer"
           className={`
@@ -264,7 +264,7 @@ export default function ServicesSection() {
             className="text-[13px] leading-[1.8] text-[#f5f0e8]/42 font-light max-w-xs lg:text-right"
             style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
           >
-            Mon canal Telegram est ouvert. Découvrez mon univers. Puis sollicitez une audience — si vous pensez en être digne.
+            Mon compte X est ouvert. Découvrez mon univers, puis sollicitez une audience si vous pensez en être digne.
           </motion.p>
         </div>
 

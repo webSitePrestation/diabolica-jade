@@ -20,7 +20,7 @@ export default function AboutSection() {
     <section
       ref={sectionRef}
       id="about"
-      aria-label="À propos — Diabolica Jade"
+      aria-label="À propos — Dom Rabatia"
       className="relative w-full overflow-hidden"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -200,7 +200,7 @@ export default function AboutSection() {
                       className="mt-2 text-[22px] leading-[1.1] italic text-[#F5EDD8]"
                       style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
                     >
-                      Diabolica Jade
+                      Dom Rabatia
                     </div>
                   </div>
 
