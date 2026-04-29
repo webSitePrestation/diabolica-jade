@@ -33,7 +33,7 @@ export default function AboutSection() {
               className="absolute top-10 right-4 sm:right-8 text-[9.5rem] xl:text-[12.2rem] font-bold italic leading-none text-[#c9a84c]/25 pointer-events-none select-none"
               style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
             >
-              02
+              — 02
             </span>
 
             {/* Label */}
@@ -55,7 +55,7 @@ export default function AboutSection() {
               className="text-[2.2rem] sm:text-[2.6rem] xl:text-[3.2rem] leading-[1.08] tracking-tight text-[#1A1010] italic font-normal"
               style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
             >
-              Je suis <em style={{ color: 'var(--gold-primary)' }}>l&apos;origine.</em>
+              Je suis <em style={{ color: 'var(--gold-primary)' }}>l&apos;origine</em>.
             </motion.h2>
 
             {/* Corps */}
@@ -64,16 +64,17 @@ export default function AboutSection() {
                 className="text-[14px] leading-[1.95] text-[#1A1010]/65 font-light"
                 style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
               >
-                Mon nom vient de Rabat, la capitale royale du Maroc. Ce n&apos;est pas un hasard — c&apos;est une naissance.
-                Je ne séduis pas. Je règne. Vous ne m&apos;approchez pas. Vous êtes convoqué.
+                Mon prénom vient de Rabat, capitale royale du Maroc.
+                Ce n&apos;est pas un hasard — c&apos;est une naissance.
+                Je ne séduis pas. Je règne.
               </p>
               <p
-                className="text-[14px] leading-[1.95] text-[#1A1010]/65 font-light"
+                className="text-[14px] leading-[1.95] text-[#1A1010]/65 font-light italic"
                 style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
               >
-                Ce que vous ressentez en me découvrant n&apos;est pas du désir.
+                Vous ne m&apos;approchez pas.
                 <br />
-                C&apos;est la reconnaissance instinctive d&apos;une hiérarchie naturelle.
+                Vous êtes convoquée.
               </p>
             </motion.div>
 
@@ -93,7 +94,9 @@ export default function AboutSection() {
                 className="text-[14px] italic leading-relaxed text-[#1A1010]"
                 style={{ fontFamily: 'var(--font-cormorant-garamond, Georgia, serif)' }}
               >
-                &laquo; Je n&apos;ai pas à me justifier. Les reines ne s&apos;expliquent pas. &raquo;
+                &laquo; Je n&apos;ai pas à me justifier.
+                <br />
+                Les reines ne s&apos;expliquent pas. &raquo;
               </p>
             </motion.blockquote>
 
@@ -105,8 +108,8 @@ export default function AboutSection() {
               <motion.div {...fadeUp(0.4)} className="flex items-end justify-between gap-6">
                 {(
                   [
-                    { value: 'Lignée', label: 'Royale' },
                     { value: 'Rabat', label: 'Origines' },
+                    { value: 'Lyon', label: '& Paris' },
                     { value: '∞', label: 'Dévotion' },
                   ] as const
                 ).map(({ value, label }, idx) => (
@@ -194,13 +197,13 @@ export default function AboutSection() {
 
                   <div>
                     <div className="text-[12px] tracking-[0.34em] uppercase text-[#F5EDD8]/70 font-light">
-                      À propos
+                      Domina · Queen 🇲🇦
                     </div>
                     <div
                       className="mt-2 text-[22px] leading-[1.1] italic text-[#F5EDD8]"
                       style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
                     >
-                      Dom Rabatia
+                      Rbatia
                     </div>
                   </div>
 
@@ -208,7 +211,13 @@ export default function AboutSection() {
                     className="text-[13px] leading-[1.85] text-[#F5EDD8]/70"
                     style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
                   >
-                    Une présence royale, née de Rabat. Hiérarchie naturelle, désir interdit, règne assumé.
+                    Lyon · Paris
+                  </p>
+                  <p
+                    className="text-[20px] leading-none text-[#F5EDD8]/90"
+                    style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
+                  >
+                    🇲🇦
                   </p>
                 </div>
               </motion.div>

@@ -2,11 +2,10 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Sparkles, Crown, MessageCircle } from 'lucide-react'
 import { SectionDivider } from '@/components/SectionDivider'
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
-const X_URL = 'https://x.com/DomRabatia'
+const TELEGRAM_URL = 'https://t.me/[HANDLE_TELEGRAM_RBATIA]'
 
 interface Service {
   icon:        React.ReactNode
@@ -20,45 +19,45 @@ interface Service {
 
 const SERVICES: Service[] = [
   {
-    icon:      <Sparkles size={18} strokeWidth={1} />,
-    label:     'La Cour au Quotidien',
-    title:     'Présence Royale',
+    icon:      '01',
+    label:     'Domination Financière',
+    title:     'L\'Offrande',
     description:
-      'Aperçus de ma vie, mises en scène soignées et esthétique orientale. Une présence permanente pour ceux qui méritent de me voir exister.',
+      'Je ne mendiane pas votre argent.\nIl vient à moi naturellement,\nparce que c\'est l\'ordre des choses.\nL\'offrande est la première forme de respect.',
     details: [
-      'Visuels quotidiens premium',
-      'Mise en scène signature',
-      'Ambiance Orient Luxury',
+      'Tributs & offrandes libres',
+      'Virements spontanés',
+      'Raquage sur ordre',
     ],
-    cta:       'Entrer dans la Cour',
+    cta:       'Offrir un tribut',
     highlight: false,
   },
   {
-    icon:      <Crown size={18} strokeWidth={1} />,
-    label:     'Domination',
-    title:     'Pouvoir Ancestral',
+    icon:      '02',
+    label:     'Séances IRL',
+    title:     'L\'Audience',
     description:
-      'Une seule audience. Une seule chance. Mon regard peut vous élever ou vous anéantir — à ma seule discrétion.',
+      'Je me déplace à Lyon et Paris.\nUne séance avec moi ne se réserve pas.\nElle s\'obtient — après sélection.',
     details: [
-      'Dominance de lignée',
-      'Rituel codifié',
-      'Expérience totale',
+      'Lyon & Paris',
+      'Sélection stricte',
+      'Sur convocation uniquement',
     ],
-    cta:       'Solliciter l\'accès',
+    cta:       'Demander une séance',
     highlight: false,
   },
   {
-    icon:      <MessageCircle size={18} strokeWidth={1} />,
-    label:     'Audience Privée',
-    title:     'Convocation Directe',
+    icon:      '03',
+    label:     'Virtuel & Contenu',
+    title:     'Le Sanctuaire',
     description:
-      'Pour les rares qui ont su se distinguer. Une audience en DM, accordée à ma seule discrétion.',
+      'Mon Telegram est mon royaume numérique.\nContenu quotidien, ordres, présence royale.\nL\'accès est un privilège — pas un droit.',
     details: [
-      'DM X direct',
-      'Réservé aux méritants',
-      'Échange confidentiel',
+      'Contenu exclusif Telegram',
+      'Échanges privés sur mérite',
+      'Présence quotidienne',
     ],
-    cta:       'Demander une audience',
+    cta:       'Entrer dans le Sanctuaire',
     highlight: false,
   },
 ]
@@ -187,7 +186,7 @@ function ServiceCard({
       {/* CTA */}
       <div className="mt-auto pt-2">
         <a
-          href={X_URL}
+          href={TELEGRAM_URL}
           target="_blank"
           rel="noopener noreferrer"
           className={`
@@ -221,7 +220,7 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      aria-label="Services — Diabolica Jade"
+      aria-label="Services — Rbatia"
       className="relative w-full bg-[#0a0a0a] overflow-hidden py-28 lg:py-40 px-6 md:px-12 lg:px-20"
     >
       {/* Numéro décoratif */}
@@ -230,7 +229,7 @@ export default function ServicesSection() {
         className="pointer-events-none select-none absolute top-16 right-6 lg:right-20 text-[clamp(6rem,18vw,14rem)] font-bold italic leading-none text-[#f5f0e8]/[0.025]"
         style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
       >
-        03
+        — 03
       </span>
 
       <div ref={titleRef} className="relative z-10 max-w-6xl mx-auto">
@@ -242,7 +241,7 @@ export default function ServicesSection() {
             className="text-[9px] tracking-[0.5em] uppercase text-[#c9a84c] font-light"
             style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
           >
-            Mon univers
+            La Cour
           </span>
         </motion.div>
 
@@ -264,7 +263,9 @@ export default function ServicesSection() {
             className="text-[13px] leading-[1.8] text-[#f5f0e8]/42 font-light max-w-xs lg:text-right"
             style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
           >
-            Mon compte X est ouvert. Découvrez mon univers, puis sollicitez une audience si vous pensez en être digne.
+            Mon Telegram est le seuil de ma cour.
+            <br />
+            Franchissez-le — si vous en êtes dignes.
           </motion.p>
         </div>
 

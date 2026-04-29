@@ -77,7 +77,7 @@ export async function generateMetadata({
   const article = ARTICLES.find((a) => a.slug === params.slug)
   if (!article) return { title: 'Article introuvable' }
   return {
-    title:       `${article.titre} — Diabolica Jade`,
+    title:       `${article.titre} — Rbatia`,
     description: article.extrait,
     robots:      { index: true, follow: true },
   }
@@ -172,7 +172,7 @@ export default function ArticlePage({
             className="text-[11px] tracking-[0.35em] italic text-[#c9a84c]/50"
             style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
           >
-            Diabolica Jade
+            Rbatia
           </span>
         </div>
 

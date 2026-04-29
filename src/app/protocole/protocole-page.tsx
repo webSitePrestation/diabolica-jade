@@ -3,7 +3,7 @@ import { X } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Protocole de contact — Diabolica Jade',
+  title: 'Protocole de contact — Rbatia',
   description: 'Comment m\'approcher correctement. Ce que j\'attends d\'un premier message.',
   robots: { index: false, follow: false },
 }
@@ -66,7 +66,7 @@ export default function ProtocolePage() {
           className="text-[10px] tracking-[0.5em] uppercase text-[#c9a84c] hover:text-[#c9a84c]/70 transition-colors duration-300"
           style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
         >
-          ← D · J
+          ← R · B
         </Link>
         <span
           className="text-[9px] tracking-[0.4em] uppercase text-[#f5f0e8]/25 font-light"

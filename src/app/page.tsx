@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence, Variants } from 'framer-motion'
 import { CreditCard, Menu, X } from 'lucide-react'
 import Image from 'next/image'
@@ -68,6 +68,8 @@ export default function HomePage() {
   const mounted = true
   const [introVisible, setIntroVisible] = useState<boolean>(true)
   const [isNavScrolled, setIsNavScrolled] = useState<boolean>(false)
+  const [showStickyNav, setShowStickyNav] = useState<boolean>(false)
+  const lastScrollY = useRef<number>(0)
 
   useEffect(() => {
     const introTimer = window.setTimeout(() => {
@@ -84,9 +86,17 @@ export default function HomePage() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsNavScrolled(window.scrollY > 10)
+      const currentY = window.scrollY
+      const heroHeight = window.innerHeight
+      const scrollingDown = currentY > lastScrollY.current
+
+      setIsNavScrolled(currentY > 10)
+      setShowStickyNav(currentY > heroHeight - 140 && scrollingDown)
+
+      lastScrollY.current = currentY
     }
 
+    lastScrollY.current = window.scrollY
     handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
@@ -133,15 +143,15 @@ export default function HomePage() {
       <motion.nav
         aria-label="Navigation sections"
         initial={false}
-        animate={{ opacity: 1, y: 0 }}
+        animate={showStickyNav ? { opacity: 1, y: 0 } : { opacity: 0, y: -18 }}
         transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
         className={`
-          fixed top-3 left-1/2 -translate-x-1/2 z-50
+          fixed top-0 left-1/2 -translate-x-1/2 z-[90]
           hidden md:flex items-center gap-7
           px-7 py-3 border-b border-[var(--color-border-gold)]
           bg-[rgba(7,5,10,0.95)] backdrop-blur-md
           shadow-[0_10px_40px_rgba(0,0,0,0.38)]
-          pointer-events-auto
+          ${showStickyNav ? 'pointer-events-auto' : 'pointer-events-none'}
         `}
       >
         {NAV_LINKS.map(({ label, href }) => (
@@ -447,7 +457,7 @@ export default function HomePage() {
       <main
         id="top"
         className="relative w-full h-[100dvh] min-h-[600px] overflow-hidden flex flex-col bg-[#0a0a0a]"
-        aria-label="Hero — Diabolica Jade"
+        aria-label="Hero — Rbatia"
       >
         {/* Fond image */}
         <div className="absolute inset-0 z-0" aria-hidden="true">
@@ -468,7 +478,7 @@ export default function HomePage() {
           />
         </div>
 
-        <div style={{textAlign:'center', position:'relative', zIndex:2, padding:'0 2rem'}}>
+        <div style={{textAlign:'center', position:'relative', zIndex:2, padding:'0 2rem', paddingTop:'clamp(5.5rem, 10vh, 8.5rem)'}}>
 
           <p style={{fontFamily:'Jost', fontSize:'0.62rem', letterSpacing:'0.55em', textTransform:'uppercase',
                      color:'var(--gold-primary)', marginBottom:'2rem'}}>
@@ -496,7 +506,7 @@ export default function HomePage() {
             Née de lignée royale &nbsp;·&nbsp; Vouée à être adorée &nbsp;·&nbsp; Inaccessible par nature
           </p>
 
-          <a href={X_URL} target="_blank" rel="noopener noreferrer" style={{display:'inline-flex', flexDirection:'column', alignItems:'center', gap:'0.6rem', textDecoration:'none'}}>
+          <a href="https://t.me/[HANDLE_TELEGRAM_RBATIA]" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex', flexDirection:'column', alignItems:'center', gap:'0.6rem', textDecoration:'none'}}>
             <span style={{fontFamily:'Jost', fontSize:'0.65rem', fontWeight:500, letterSpacing:'0.3em',
                           textTransform:'uppercase', color:'var(--bg-primary)',
                           background:'linear-gradient(135deg,var(--gold-primary),var(--gold-bright),var(--gold-primary))',
@@ -504,7 +514,7 @@ export default function HomePage() {
               Solliciter une audience
             </span>
             <span style={{fontSize:'0.58rem', letterSpacing:'0.25em', textTransform:'uppercase', color:'var(--text-muted)'}}>
-              Contact via X
+              Canal privé &amp; exclusif
             </span>
           </a>
         </div>

@@ -42,18 +42,19 @@ const geistMono = Geist_Mono({
    METADATA
 ───────────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-  title: 'Rbatia — Domina · Reine de lignée',
-  description: "Rbatia. Née à Rabat, règne sur tout. Domina de lignée royale. L'audience s'obtient, elle ne se demande pas.",
+  title: 'Rbatia — Domina · Reine de lignée 🇲🇦',
+  description: "Rbatia. Née à Rabat, règne sur Lyon et Paris. Domina de lignée royale. Findom, séances IRL, contenu exclusif. L'audience s'obtient — elle ne se demande pas.",
   openGraph: {
-    title: 'Rbatia — Reine Domina',
-    description: 'Née de lignée royale. Domina inaccessible. Audience sur convocation.',
-    url: '[URL_FINALE_RBATIA]',
+    title: 'Rbatia — Reine Domina 🇲🇦',
+    description: 'Née de lignée royale. Inaccessible par nature. Audience sur convocation uniquement.',
+    url: '[URL_FINALE_DU_SITE]',
     type: 'website',
     locale: 'fr_FR',
   },
   twitter: {
     card: 'summary_large_image',
     site: '@DomRabatia',
+    creator: '@DomRabatia',
   },
   icons: {
     icon: '/icon.svg',
@@ -80,6 +81,9 @@ export default function RootLayout({
         h-full antialiased
       `}
     >
+      <head>
+        <title>Rbatia — Domina · Queen 🇲🇦</title>
+      </head>
       <body className="min-h-full flex flex-col">
         {children}
       </body>

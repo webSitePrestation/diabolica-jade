@@ -14,7 +14,7 @@ export default function MentionsLegalesPage() {
             style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
             aria-label="Retour à l'accueil"
           >
-            D · J
+            R · B
           </Link>
 
           <div className="flex flex-col gap-4">
@@ -40,7 +40,7 @@ export default function MentionsLegalesPage() {
               className="text-[14px] leading-[1.9] text-[#f5f0e8]/75 font-light"
               style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
             >
-              Cette plateforme est éditée sous l&apos;identité Diabolica Jade.
+              Cette plateforme est éditée sous l&apos;identité Rbatia.
             </p>
             <div className="w-full h-px bg-[#c9a84c]/25" />
           </section>

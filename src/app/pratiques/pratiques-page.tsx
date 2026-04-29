@@ -3,7 +3,7 @@ import { Check, X } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Pratiques & Limites — Diabolica Jade',
+  title: 'Pratiques & Limites — Rbatia',
   description: 'Ce que je pratique, ce que je ne pratique pas. Mon style de domination, mes règles, mon cadre.',
   robots: { index: false, follow: false },
 }
@@ -64,7 +64,7 @@ export default function PratiquesPage() {
           className="text-[10px] tracking-[0.5em] uppercase text-[#c9a84c] hover:text-[#c9a84c]/70 transition-colors duration-300"
           style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
         >
-          ← D · J
+          ← R · B
         </Link>
         <span
           className="text-[9px] tracking-[0.4em] uppercase text-[#f5f0e8]/25 font-light"

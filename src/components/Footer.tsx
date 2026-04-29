@@ -2,14 +2,14 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Crown, CreditCard, X } from 'lucide-react'
+import { CreditCard, Send, X } from 'lucide-react'
 import { SectionDivider } from '@/components/SectionDivider'
 
 /* ─────────────────────────────────────────────────────────────────
    CONFIG
 ───────────────────────────────────────────────────────────────── */
-const X_URL         = 'https://x.com/DomRabatia'
-const REVOLUT_URL   = 'https://revolut.me/ayatawu46'
+const X_URL         = 'https://x.com/domrabatia'
+const TELEGRAM_URL  = 'https://t.me/[HANDLE_TELEGRAM_RBATIA]'
 const BEACONS_URL   = 'https://beacons.ai/domrabatia'
 
 interface FooterLink {
@@ -19,8 +19,6 @@ interface FooterLink {
 
 const LEGAL_LINKS: FooterLink[] = [
   { label: 'Mentions légales',       href: '/mentions-legales' },
-  { label: 'Politique de conf.',     href: '/confidentialite' },
-  { label: 'CGU',                    href: '/cgu' },
 ]
 
 const RESOURCE_LINKS: FooterLink[] = [
@@ -31,19 +29,14 @@ const RESOURCE_LINKS: FooterLink[] = [
 
 const SOCIAL_LINKS = [
   {
-    label: 'X',
+    label: 'Telegram',
+    href: TELEGRAM_URL,
+    icon: <Send size={12} strokeWidth={1} aria-hidden="true" />,
+  },
+  {
+    label: 'X / Twitter',
     href: X_URL,
     icon: <X size={12} strokeWidth={1} aria-hidden="true" />,
-  },
-  {
-    label: 'Throne',
-    href: BEACONS_URL,
-    icon: <Crown size={12} strokeWidth={1} aria-hidden="true" />,
-  },
-  {
-    label: 'Revolut',
-    href: REVOLUT_URL,
-    icon: <CreditCard size={12} strokeWidth={1} aria-hidden="true" />,
   },
 ] as const
 
@@ -82,7 +75,7 @@ export default function Footer() {
             "
             style={{ fontFamily: 'var(--font-cinzel, Georgia, serif)' }}
           >
-            R <span style={{ color: 'var(--gold-primary)' }}>◆</span> B
+            R <span style={{ color: 'var(--gold-primary)' }}>·</span> B
           </span>
         </motion.div>
 
@@ -103,13 +96,13 @@ export default function Footer() {
             className="text-[clamp(1.4rem,5vw,2rem)] italic font-normal text-[#f5f0e8]"
             style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
           >
-            Un regard de Reine peut tout <em style={{ color: 'var(--gold-primary)' }}>changer</em>.
+            Un regard de Reine peut tout <em style={{ color: 'var(--gold-primary)' }}>changer.</em>
           </h2>
           <p
             className="text-[1rem] italic text-[#f5f0e8]/75"
             style={{ fontFamily: 'Cormorant Garamond, serif' }}
           >
-            Encore faut-il mériter d&apos;être regardée.
+            Encore faut-il mériter d&apos;être regardé.
           </p>
           <p
             className="text-[11px] tracking-[0.3em] uppercase text-[#f5f0e8]/40 font-light"
@@ -123,7 +116,7 @@ export default function Footer() {
 
         {/* Bouton principal */}
         <motion.a
-          href={REVOLUT_URL}
+          href={TELEGRAM_URL}
           target="_blank"
           rel="noopener noreferrer"
           initial={{ opacity: 0, y: 20 }}
@@ -165,7 +158,7 @@ export default function Footer() {
             className="relative z-10 text-[9px] tracking-[0.35em] uppercase font-light text-[#f5f0e8]"
             style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
           >
-            Payer via Revolut
+            Solliciter une audience
           </span>
         </motion.a>
 

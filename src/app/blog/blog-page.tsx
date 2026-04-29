@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Journal — Diabolica Jade',
+  title: 'Journal — Rbatia',
   description: 'Réflexions sur la domination, le lifestyle et l\'art de la soumission.',
   robots: { index: true, follow: true },
 }
@@ -92,7 +92,7 @@ export default function BlogPage() {
           className="text-[10px] tracking-[0.5em] uppercase text-[#c9a84c] hover:text-[#c9a84c]/70 transition-colors duration-300"
           style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
         >
-          ← D · J
+          ← R · B
         </Link>
         <span
           className="text-[9px] tracking-[0.4em] uppercase text-[#f5f0e8]/25 font-light"

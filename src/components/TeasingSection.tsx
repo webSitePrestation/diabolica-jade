@@ -7,7 +7,7 @@ import { X } from 'lucide-react'
 import { SectionDivider } from '@/components/SectionDivider'
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
-const X_URL = 'https://x.com/DomRabatia'
+const TELEGRAM_URL = 'https://t.me/[HANDLE_TELEGRAM_RBATIA]'
 
 /*
   Remplace les `src` par tes vraies photos dans /public/
@@ -25,12 +25,12 @@ interface GalleryItem {
 }
 
 const ITEMS: GalleryItem[] = [
-  { src: '/image00002.jpeg', alt: 'Diabolica Jade', size: 'tall'  },
-  { src: '/image00002.jpeg', alt: 'Diabolica Jade', size: 'small' },
-  { src: '/image00002.jpeg', alt: 'Diabolica Jade', size: 'small' },
-  { src: '/image00002.jpeg', alt: 'Diabolica Jade', size: 'wide'  },
-  { src: '/image00002.jpeg', alt: 'Diabolica Jade', size: 'small' },
-  { src: '/image00002.jpeg', alt: 'Diabolica Jade', size: 'small' },
+  { src: '/image00002.jpeg', alt: 'Rbatia', size: 'tall'  },
+  { src: '/image00002.jpeg', alt: 'Rbatia', size: 'small' },
+  { src: '/image00002.jpeg', alt: 'Rbatia', size: 'small' },
+  { src: '/image00002.jpeg', alt: 'Rbatia', size: 'wide'  },
+  { src: '/image00002.jpeg', alt: 'Rbatia', size: 'small' },
+  { src: '/image00002.jpeg', alt: 'Rbatia', size: 'small' },
 ]
 
 export default function TeasingSection() {
@@ -48,7 +48,7 @@ export default function TeasingSection() {
   return (
     <section
       id="gallery"
-      aria-label="Galerie — Diabolica Jade"
+      aria-label="Galerie — Rbatia"
       className="relative w-full bg-[#0a0a0a] overflow-hidden py-28 lg:py-40 px-6 md:px-12 lg:px-20"
     >
       {/* Numéro décoratif */}
@@ -57,7 +57,7 @@ export default function TeasingSection() {
         className="pointer-events-none select-none absolute top-16 left-6 lg:left-20 text-[clamp(6rem,18vw,14rem)] font-bold italic leading-none text-[#f5f0e8]/[0.025]"
         style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
       >
-        04
+        — 04
       </span>
 
       <div className="relative z-10 max-w-6xl mx-auto">
@@ -70,7 +70,7 @@ export default function TeasingSection() {
               className="text-[9px] tracking-[0.5em] uppercase text-[#c9a84c] font-light"
               style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
             >
-              Aperçu
+              Portraits
             </span>
           </motion.div>
 
@@ -82,11 +82,7 @@ export default function TeasingSection() {
               className="text-[clamp(2rem,5vw,3.5rem)] leading-[1.06] tracking-tight text-[#f5f0e8] italic font-normal"
               style={{ fontFamily: 'var(--font-playfair, Georgia, serif)' }}
             >
-              Un avant-goût
-              <br />
-              <span className="not-italic font-bold text-[#c9a84c]">
-                de mon univers.
-              </span>
+              Fragments de ma cour.
             </motion.h2>
 
             <motion.p
@@ -94,9 +90,7 @@ export default function TeasingSection() {
               className="text-[13px] leading-[1.8] text-[#f5f0e8]/42 font-light max-w-xs lg:text-right"
               style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
             >
-              Rejoignez mon X pour accéder
-              <br className="hidden lg:block" />
-              à l&apos;intégralité du contenu en continu.
+              <em>Les portraits complets ne s&apos;accordent qu&apos;aux initiés.</em>
             </motion.p>
           </div>
         </div>
@@ -170,7 +164,7 @@ export default function TeasingSection() {
                   className="text-[7.5px] tracking-[0.35em] uppercase text-[#f5f0e8]/80 font-light"
                   style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
                 >
-                  Voir sur X
+                  Accéder
                 </span>
               </div>
             </motion.div>
@@ -197,13 +191,12 @@ export default function TeasingSection() {
             className="text-[13px] text-[#f5f0e8]/40 font-light text-center max-w-sm"
             style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
           >
-            Suivez mon contenu.
-            Rejoignez gratuitement pour ne rien manquer.
+            L&apos;intégralité de mon univers vit sur mon Telegram.
           </p>
 
           {/* Bouton X */}
           <motion.a
-            href={X_URL}
+            href={TELEGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.015 }}
@@ -242,7 +235,7 @@ export default function TeasingSection() {
               className="relative z-10 text-[9px] tracking-[0.38em] uppercase font-light text-[#f5f0e8]"
               style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
             >
-              Rejoindre mon X
+              Demander l&apos;accès
             </span>
           </motion.a>
 
@@ -252,7 +245,7 @@ export default function TeasingSection() {
               className="text-[7.5px] tracking-[0.3em] uppercase text-[#f5f0e8]/20"
               style={{ fontFamily: 'var(--font-inter, "Helvetica Neue", Helvetica, Arial, sans-serif)' }}
             >
-              Accès gratuit · Contenu quotidien
+              Sur invitation · Contenu exclusif
             </span>
             <div className="w-8 h-px bg-[#f5f0e8]/10" />
           </div>
