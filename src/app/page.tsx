@@ -243,6 +243,19 @@ export default function HomePage() {
         </div>
       </motion.nav>
 
+      <button
+        onClick={() => setMenuOpen((p) => !p)}
+        aria-expanded={menuOpen}
+        aria-controls="mobile-menu"
+        aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+        className="fixed top-5 right-5 z-[60] p-2 rounded-sm border border-[#c9a84c]/28 bg-[#0a0a0a]/78 backdrop-blur-sm text-[#f5f0e8] hover:text-[#c9a84c] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a84c]/60 md:hidden"
+      >
+        {menuOpen
+          ? <X size={20} strokeWidth={1} aria-hidden="true" />
+          : <Menu size={20} strokeWidth={1} aria-hidden="true" />
+        }
+      </button>
+
       {/* ════════════════════════════════════════════════════════
           HERO — plein écran
       ════════════════════════════════════════════════════════ */}
@@ -294,18 +307,7 @@ export default function HomePage() {
             </motion.span>
           )}
 
-          <button
-            onClick={() => setMenuOpen((p) => !p)}
-            aria-expanded={menuOpen}
-            aria-controls="mobile-menu"
-            aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
-            className="p-2 -mr-2 text-[#f5f0e8] hover:text-[#c9a84c] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a84c]/60"
-          >
-            {menuOpen
-              ? <X    size={20} strokeWidth={1} aria-hidden="true" />
-              : <Menu size={20} strokeWidth={1} aria-hidden="true" />
-            }
-          </button>
+          <div aria-hidden="true" className="w-8 md:w-0" />
         </nav>
 
         {/* Menu overlay */}
@@ -319,7 +321,7 @@ export default function HomePage() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="absolute inset-0 z-20 bg-[#0a0a0a]/96 backdrop-blur-sm flex flex-col items-center justify-center gap-10"
+              className="fixed inset-0 z-[55] bg-[#0a0a0a]/96 backdrop-blur-sm flex flex-col items-center justify-center gap-10"
             >
               <button
                 onClick={() => setMenuOpen(false)}
